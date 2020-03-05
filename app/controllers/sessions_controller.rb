@@ -7,7 +7,12 @@ class SessionsController < ApplicationController
 
 
   def login
-  
+    if session[:user_id] != nil
+      redirect_to '/welcome'
+    else
+      redirect_to '/login'   
+    end
+
   end
 
   def create   

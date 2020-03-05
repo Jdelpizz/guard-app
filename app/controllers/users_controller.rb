@@ -11,4 +11,11 @@ class UsersController < ApplicationController
     session[:user_id] = @user.id
     redirect_to '/welcome'
   end
+
+  def
+    if logged_in?
+      return View("sessions/page_requires_login");    
+    else
+      return View("Index")
+  end
 end

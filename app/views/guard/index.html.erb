@@ -1,4 +1,25 @@
-<!-- following https://levelup.gitconnected.com/simple-authentication-guide-with-ruby-on-rails-16a6255f0be8 -->
-<title>Guard App</title>
-<p>Hello World!</p>
+<style>
+body {background-color: powderblue;background-image: url('static/Thompson_Hall.JPG');}
+h1   {color: grey;}
+</style>
+
+<div>
+    <table>
+        <tr>
+            <th>
+                <h1>Welcome!</h1>
+            </th>
+            <th style="width: 80%;">
+            </th>
+            <th>
+                <%= button_to "Login", '/login', method: :get%>
+            </th>
+            <th>
+                <%= button_to "Sign Up", '/users/new', method: :get%>
+            </th>
+        </tr>
+    </table>
+</div>
+
+
 <!-- -->
