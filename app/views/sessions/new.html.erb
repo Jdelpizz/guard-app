@@ -1,9 +1,31 @@
+<style>
+body {background-color: powderblue;background-image: url('static/Thompson_Hall.JPG');}
+h1   {color: grey;}
+</style>
+
 <h1>Login</h1> 
+<% if flash[:notice] %>
+    <div style="color: red;", class="notice"><%= flash[:notice] %></div>
+  <% end %>
 
 <%= form_tag '/login' do %>
-    <%= label_tag :username%>   
-    <%= text_field_tag :username %>   
-    <%= label_tag :password%>   
-    <%= password_field_tag :password%>   
+    <table>
+        <tr>
+            <td>
+                <%= label_tag :username%>   
+            </td>
+            <td>
+                <%= text_field_tag :username %>   
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= label_tag :password%>
+            </td>
+            <td>   
+                <%= password_field_tag :password%>   
+            </td>
+        </tr>
+    </table>
     <%= submit_tag "Login"%>
 <%end%>

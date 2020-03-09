@@ -1,3 +1,25 @@
-<h1>Welcome</h1>
+<style>
+body {background-color: powderblue;background-image: url('static/Thompson_Hall.JPG');}
+h1   {color: grey;}
+</style>
 
-<h1>You are Logged In, <%= current_user.username %></h1>
+<div>
+    <table>
+        <tr>
+            <th>
+                <h1>Welcome!</h1>
+            </th>
+            <th style="width: 80%;">
+            </th>
+            <th>
+                <%= button_to "Login", '/login', method: :get%>
+            </th>
+            <th>
+                <%= button_to "Sign Up", '/users/new', method: :get%>
+            </th>
+        </tr>
+    </table>
+</div>
+
+
+<!-- -->
