@@ -12,10 +12,10 @@ class UsersController < ApplicationController
     redirect_to '/welcome'
   end
 
-  def
+  def authorized
     if logged_in?
       return View("sessions/page_requires_login");    
-    else
+    end
       return View("Index")
   end
 end
