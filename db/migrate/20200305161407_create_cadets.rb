@@ -10,6 +10,7 @@ class CreateCadets < ActiveRecord::Migration[6.0]
       t.integer :P_NUM
       t.string :EMAIL
       t.string :RANK
+      belongs_to :enrollments
     end
   end
 end

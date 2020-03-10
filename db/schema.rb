@@ -12,11 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_03_05_163230) do
 
-  create_table "articles", force: :cascade do |t|
-    t.string "title"
-    t.string "movietitles"
-  end
-
   create_table "cadets", force: :cascade do |t|
     t.integer "CWID"
     t.integer "CO_ID"

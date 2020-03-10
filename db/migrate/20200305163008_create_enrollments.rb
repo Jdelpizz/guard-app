@@ -4,6 +4,8 @@ class CreateEnrollments < ActiveRecord::Migration[6.0]
       t.integer :ENROLL_ID
       t.integer :CWID
       t.string :class
+      has_many :classes
+      belongs_to :cadets
     end
   end
 end

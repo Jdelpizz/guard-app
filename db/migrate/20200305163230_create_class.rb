@@ -5,6 +5,7 @@ class CreateClass < ActiveRecord::Migration[6.0]
       t.string :DAY
       t.string :START_TIME
       t.string :END_TIME
+      belongs_to :enrollments
     end
   end
 end
