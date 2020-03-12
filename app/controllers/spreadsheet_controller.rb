@@ -1,5 +1,5 @@
 class SpreadsheetController < ApplicationController
-  layout false
+  before_action :authorized
   def index
   end
 end
