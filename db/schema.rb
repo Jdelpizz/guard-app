@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_213456) do
   create_table "cadets", force: :cascade do |t|
     t.integer "CWID"
     t.integer "CO_ID"
+    t.string "C_STATUS"
     t.string "F_NAME"
     t.string "M_INITIAL"
     t.string "L_NAME"

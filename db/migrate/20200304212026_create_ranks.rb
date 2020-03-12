@@ -4,7 +4,10 @@ class CreateRanks < ActiveRecord::Migration[6.0]
       t.integer :RANK_ID
       t.string :RANK_NAME
       t.boolean :BOL_SWORD
-      has_many :cadets
     end
   end
+end
+
+class Rank < ApplicationRecord
+  has_many :cadets
 end

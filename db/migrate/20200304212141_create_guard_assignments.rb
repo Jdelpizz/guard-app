@@ -8,8 +8,12 @@ class CreateGuardAssignments < ActiveRecord::Migration[6.0]
       t.integer :CWID_S
       t.integer :CWID_J
       t.integer :CWID_SR
-      belongs_to :locations
-      belongs_to :cadets
     end
   end
+end
+
+
+class GuardAssignments < ApplicationRecord
+  belongs_to :location
+  belongs_to :cadet
 end

@@ -3,8 +3,12 @@ class CreateLocations < ActiveRecord::Migration[6.0]
     create_table :locations do |t|
       t.integer :LOCA_ID
       t.string :LOCA_NAME
-      has_many :companies
-      has_many :guard_assignments
     end
   end
+end
+
+
+class Location < ApplicationRecord
+    has_many :companies
+    has_many :guard_assignments
 end

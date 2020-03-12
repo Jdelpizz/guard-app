@@ -11,10 +11,13 @@ class CreateCadets < ActiveRecord::Migration[6.0]
       t.string :P_NUM
       t.string :EMAIL
       t.integer :RANK_ID
-      belongs_to :companies
-      belongs_to :ranks
-      has_many :enrollments
-      has_one :guard_assignments
     end
   end
+end
+
+class Cadets < ApplicationRecord
+    belongs_to :company
+    belongs_to :rank
+    has_many :enrollments
+    has_one :guard_assignments
 end
