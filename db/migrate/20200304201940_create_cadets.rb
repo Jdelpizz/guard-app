@@ -3,6 +3,7 @@ class CreateCadets < ActiveRecord::Migration[6.0]
     create_table :cadets do |t|
       t.integer :CWID
       t.integer :CO_ID
+      t.string :C_STATUS
       t.string :F_NAME
       t.string :M_INITIAL
       t.string :L_NAME
@@ -10,7 +11,10 @@ class CreateCadets < ActiveRecord::Migration[6.0]
       t.string :P_NUM
       t.string :EMAIL
       t.integer :RANK_ID
-
+      belongs_to :companies
+      belongs_to :ranks
+      has_many :enrollments
+      has_one :guard_assignments
     end
   end
 end
