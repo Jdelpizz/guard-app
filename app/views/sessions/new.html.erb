@@ -1,0 +1,28 @@
+<%= stylesheet_link_tag "application.css" %>
+
+<h1>Login</h1> 
+<% if flash[:notice] %>
+    <div style="color: red;", class="notice"><%= flash[:notice] %></div>
+  <% end %>
+
+<%= form_tag '/login' do %>
+    <table>
+        <tr>
+            <td>
+                <%= label_tag :username%>   
+            </td>
+            <td>
+                <%= text_field_tag :username %>   
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= label_tag :password%>
+            </td>
+            <td>   
+                <%= password_field_tag :password%>   
+            </td>
+        </tr>
+    </table>
+    <%= submit_tag "Login"%>
+<%end%>
