@@ -1,0 +1,23 @@
+
+<%= stylesheet_link_tag "application.css" %>
+
+<div>
+    <table>
+        <tr>
+            <th>
+                <h1>Welcome!</h1>
+            </th>
+            <th style="width: 80%;">
+            </th>
+            <th>
+                <%= button_to "Login", '/login', method: :get%>
+            </th>
+            <th>
+                <%= button_to "Sign Up", '/users/new', method: :get%>
+            </th>
+        </tr>
+    </table>
+</div>
+
+
+<!-- -->
