@@ -5,16 +5,13 @@ So I can login with an account
 To ensure privacy and security of users
 
 Background: I am on the homepage
-
-  When I go to root
+  Given I create the user "admin" "password"
 
 Scenario: I login with admin
-  When I press "Login"
-  Then I 
-  Then I go to test_auth page
-  Then I should not see "You have access to this page"
+  When I login with "admin" and "password"
+  Then I go to the authorized page
+  Then I should see "You have access to this page, admin"
 
 Scenario: I login to an unknown account
-  When I press "Login"
-
+  When I login with "admin" and "1234"
   Then I should see "Invalid Username or Password"
