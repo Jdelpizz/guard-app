@@ -10,6 +10,11 @@ When /^(?:|I )create the user "([^"]*)" "([^"]*)"$/ do |user, pass|
      #press login
      click_button("Create User")
 end
+When /^(?:|I )create the following users:$/ do |fields|
+     fields.rows_hash.each do |user, pass|
+       When %{I create the user "#{user}" "#{pass}"}
+     end
+   end
 
 When /^(?:|I )login with "([^"]*)" and "([^"]*)"$/ do |user, pass|
      #goto /login
