@@ -1,0 +1,23 @@
+<h1> Cadets Listing Page</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th> First Name </th>
+            <th> Last Name </th>
+            <th> CWID </th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <% @cadets.each do |cadet| %>
+        <tr>
+            <td> <%= cadet.F_NAME %> </td>
+            <td> <%= cadet.L_NAME %> </td>
+            <td> <%= cadet.CWID %></td>
+            <td> Place Holder</td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "/pages/:page" => "pages#show"
   
   resources :users, only: [:new, :create]
+  resources :cadets, only: [:show, :index]
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'   
   get 'welcome', to: 'sessions#welcome'
@@ -21,4 +22,3 @@ Rails.application.routes.draw do
   root 'sessions#welcome'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
-
