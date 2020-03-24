@@ -7,9 +7,14 @@ class UsersController < ApplicationController
   end
 
   def create   
-    @user = User.create(params.require(:user).permit(:username, :password))
-    session[:user_id] = @user.id
-    redirect_to '/welcome'
+    if User.find_by(username: params[:user][:username]) != nil
+      flash[:notice] = "Sorry, that account already exists."
+      redirect_to '/users/new'
+    else
+      @user = User.create(params.require(:user).permit(:username, :password))
+      session[:user_id] = @user.id      
+      redirect_to '/welcome'
+    end
   end
 
   def authorized

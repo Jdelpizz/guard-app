@@ -1,6 +1,8 @@
 <%= stylesheet_link_tag "application.css" %>
 <h1>Sign Up</h1>
-
+<% if flash[:notice] %>
+    <div style="color: red;", class="notice"><%= flash[:notice] %></div>
+  <% end %>
 <%= form_for @user do |f|%>
   <%= f.label :username%><br>
   <%= f.text_field :username%><br>  

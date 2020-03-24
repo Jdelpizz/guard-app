@@ -13,4 +13,5 @@ Scenario: I create a user
 
 Scenario: I create a user that already exists
   When I create the user "admin" "password"
+  When I create the user "admin" "password"
     Then I should see "Sorry, that account already exists."
