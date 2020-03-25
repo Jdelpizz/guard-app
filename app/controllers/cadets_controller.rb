@@ -17,7 +17,7 @@ class CadetsController < ApplicationController
     end
 
     def create
-        @cadet = Cadets.new(params.require(:cadet).permit(:CWID, :CO_ID, :C_STATUS, :F_NAME, :M_INITIAL, :L_NAME, :R_NUM, :P_NUM, :EMAIL, :RANK_ID))
+        @cadet = Cadets.new(params.require(:cadet).permit(:CWID, :CO_ID, :C_STATUS, :F_NAME, :M_INITIAL, :L_NAME, :R_NUM, :P_NUM, :EMAIL, :RANK_ID, :monday, :tuesday, :wednesday, :thursday, :friday))
         if @cadet.save
             flash[:notice] = "Cadet was created successfully."
             redirect_to cadet_path(@cadet)
@@ -28,7 +28,7 @@ class CadetsController < ApplicationController
 
     def update
         @cadet = Cadets.find(params[:id])
-        if @cadet.update(params.require(:cadets).permit(:CWID, :CO_ID, :C_STATUS, :F_NAME, :M_INITIAL, :L_NAME, :R_NUM, :P_NUM, :EMAIL, :RANK_ID))
+        if @cadet.update(params.require(:cadets).permit(:CWID, :CO_ID, :C_STATUS, :F_NAME, :M_INITIAL, :L_NAME, :R_NUM, :P_NUM, :EMAIL, :RANK_ID, :monday, :tuesday, :wednesday, :thursday, :friday))
             flash[:notice] = "Cadet was updated successfully"
             redirect_to cadet_path(@cadet)
         else

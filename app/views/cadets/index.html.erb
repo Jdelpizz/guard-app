@@ -18,8 +18,6 @@
                 <th>Wednesday</th>
                 <th>Thursday</th>
                 <th>Friday</th>
-                <th>Saturday</th>
-                <th>Sunday</th>
                 <th colspan = 3>Actions</th>
             </tr>
         </thead>
@@ -28,13 +26,11 @@
             <% @cadets.each do |cadet| %>
             <tr>
                 <td><%= cadet.F_NAME %> <%= cadet.L_NAME %> </td>
-                <td>Row:1 Cell:2<</td>
-                <td>Row:1 Cell:3</td>
-                <td>Row:1 Cell:4</td>
-                <td>Row:1 Cell:5</td>
-                <td>Row:1 Cell:6</td>
-                <td>Row:1 Cell:7</td>
-                <td>Row:1 Cell:8</td>
+                <td><%= cadet.monday %> </td>
+                <td><%= cadet.tuesday %> </td>
+                <td><%= cadet.wednesday %> </td>
+                <td><%= cadet.thursday %> </td>
+                <td><%= cadet.friday %> </td>
                 <td> <%= link_to 'Show', cadet_path(cadet) %> </td>
                 <td> <%= link_to 'Edit', edit_cadet_path(cadet) %> </td>
                 <td> <%= link_to 'Delete', cadet_path(cadet), method: :delete, data: { confirm: "Are you sure?"} %> </td>
