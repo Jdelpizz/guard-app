@@ -33,7 +33,7 @@
                 <td><%= cadet.friday %> </td>
                 <td> <%= link_to 'Show', cadet_path(cadet) %> </td>
                 <td> <%= link_to 'Edit', edit_cadet_path(cadet) %> </td>
-                <td> <%= link_to 'Delete', cadet_path(cadet), method: :delete, data: { confirm: "Are you sure?"} %> </td>
+                <td> <%= button_to 'Delete', cadet_path(cadet), method: :delete, data: { confirm: "Are you sure?"} %> </td>
             </tr>
             <% end %>
         </tbody> 

@@ -19,5 +19,5 @@
 <p><strong> FRIDAY CLASSES: </strong> <%= @cadet.friday %> </p>
 
 <%= link_to 'Edit', edit_cadet_path(@cadet) %> |
-<%= link_to 'Delete', cadet_path(@cadet), method: :delete, data: { confirm: "Are you sure?"} %> |
+<%= button_to 'Delete', cadet_path(@cadet), method: :delete, data: { confirm: "Are you sure?"} %> |
 <%= link_to 'Back', cadets_path %>
