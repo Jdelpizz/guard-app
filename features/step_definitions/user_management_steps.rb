@@ -1,5 +1,9 @@
 require 'uri'
 require 'cgi'
+When /^params is empty$/ do
+     params = ""
+end
+
 When /^(?:|I )create the user "([^"]*)" "([^"]*)"$/ do |user, pass|
      #goto /users/new
      visit path_to("the users_new page")

@@ -5,8 +5,8 @@ So I can logout of an account
 To ensure privacy and security of the account
 
 Background: I am logged in
-  Given I create the user "admin" "password"
-  Given I login with "admin" and "password"
+  Given I create the user "admin" "1AnnoyingPassword!"
+  Given I login with "admin" and "1AnnoyingPassword!"
   Then I go to the home page
 
 Scenario: I am logged in and I logout
