@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'users/create'
   get 'guard/index'
 
-  get 'spreadsheet/index'
+  get 'guard/cadets'
   get "/pages/:page" => "pages#show"
   
   resources :users, only: [:new, :create]
