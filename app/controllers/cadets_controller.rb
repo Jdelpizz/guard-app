@@ -20,7 +20,7 @@ class CadetsController < ApplicationController
         @cadet = Cadets.new(params.require(:cadet).permit(:CWID, :CO_ID, :C_STATUS, :F_NAME, :M_INITIAL, :L_NAME, :R_NUM, :P_NUM, :EMAIL, :RANK_ID))
         if @cadet.save
             flash[:notice] = "Cadet was created successfully."
-            redirect_to cadets_path(@cadet)
+            redirect_to cadet_path(@cadet)
         else
             render 'new'
         end
@@ -30,10 +30,16 @@ class CadetsController < ApplicationController
         @cadet = Cadets.find(params[:id])
         if @cadet.update(params.require(:cadets).permit(:CWID, :CO_ID, :C_STATUS, :F_NAME, :M_INITIAL, :L_NAME, :R_NUM, :P_NUM, :EMAIL, :RANK_ID))
             flash[:notice] = "Cadet was updated successfully"
-            redirect_to cadets_path(@cadet)
+            redirect_to cadet_path(@cadet)
         else
             render 'edit'
 
         end
+    end
+
+    def destroy
+        @cadet = Cadets.find(params[:id])
+        @cadet.destroy
+        redirect_to cadets_path
     end
 end

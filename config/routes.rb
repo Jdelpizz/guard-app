@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get "/pages/:page" => "pages#show"
   
   resources :users, only: [:new, :create]
-  resources :cadets, only: [:show, :index, :new, :create, :edit, :update]
+  resources :cadets, only: [:show, :index, :new, :create, :edit, :update, :destroy]
 
 
   get 'login', to: 'sessions#new'
