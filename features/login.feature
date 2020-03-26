@@ -9,8 +9,10 @@ Background: I am on the homepage
 
 Scenario: I login with admin
   When I login with "admin" and "password"
-  Then I go to the authorized page
-  Then I should see "You have access to this page, admin"
+  Then I should see "Company Spreadsheet"
+  Then I go to the home page
+  Then I should see "admin"
+  
 
 Scenario: I login to an unknown account
   When I login with "admin" and "1234"
