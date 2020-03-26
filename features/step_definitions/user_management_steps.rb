@@ -1,5 +1,6 @@
 require 'uri'
 require 'cgi'
+
 When /^(?:|I )create the user "([^"]*)" "([^"]*)"$/ do |user, pass|
      #goto /users/new
      visit path_to("the users_new page")
@@ -10,6 +11,12 @@ When /^(?:|I )create the user "([^"]*)" "([^"]*)"$/ do |user, pass|
      #press login
      click_button("Create User")
 end
+
+When /^(?:|I )logout$/ do
+     visit path_to("the home page")
+     click_button("Logout")
+end
+
 When /^(?:|I )create the following users:$/ do |fields|
      fields.rows_hash.each do |user, pass|
        When %{I create the user "#{user}" "#{pass}"}

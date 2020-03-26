@@ -10,16 +10,23 @@
             <th style="width: 80%;">
             </th>
             <th>
+               <%= flash[:username] %>
+            </th>
+            
+            <th>
                 <%= button_to "Login", '/login', method: :get%>
             </th>
             <th>
                 <%= button_to "Sign Up", '/users/new', method: :get%>
             </th>
              <th>
-                <%= button_to "Logout", '/logout', method: :get%>
+                <%= button_to "Logout", '/logout', method: :post%>
             </th>
         </tr>
     </table>
+    <% if flash[:notice] %>
+    <div style="color: red;", class="notice"><%= flash[:notice] %></div>
+  <% end %>
 </div>
 
 

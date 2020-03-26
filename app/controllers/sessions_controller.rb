@@ -34,6 +34,11 @@ class SessionsController < ApplicationController
 
 
   def welcome
-
+    @user = User.find_by(id: session[:user_id])
+    if @user == nil
+      flash[:username] = "Please Sign In"
+    else
+      flash[:username] = @user.username
+    end
   end
 end
