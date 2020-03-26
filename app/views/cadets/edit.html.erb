@@ -1,13 +1,6 @@
 <h1> Edit a new Cadet </h1>
 
-<% if @cadet.errors.any? %>
-    <h2> The following errors prevented the page fromt being saved </h2>
-    <ul>
-        <% @cadet.errors.full_messages.each do |msg| %>
-          <li> <%= msg %> </li>
-        <% end %>
-    </ul>
-<% end %>
+<%= render 'form' %>
 
 
 <%= form_with(model: @cadet, local: true) do |f| %>
