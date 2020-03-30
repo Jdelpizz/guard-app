@@ -1,3 +1,4 @@
-class ApplicationRecord < ActiveRecord::Base
-  self.abstract_class = true
+
+class Role < ActiveRecord::Base
+    validates :name, presence: true, uniqueness: true
 end
