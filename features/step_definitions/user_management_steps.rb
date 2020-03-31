@@ -1,11 +1,5 @@
 require 'uri'
 require 'cgi'
-<<<<<<< HEAD
-When /^params is empty$/ do
-     params = ""
-end
-=======
->>>>>>> logout
 
 When /^(?:|I )create the user "([^"]*)" "([^"]*)"$/ do |user, pass|
      #goto /users/new
