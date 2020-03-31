@@ -16,6 +16,11 @@ class SessionsController < ApplicationController
     end
 
   end
+  
+  def logout
+    session[:user_id] = nil
+      redirect_to '/welcome'
+  end
 
   #Creates the user session on login
     #the post of /login
@@ -24,8 +29,10 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:username])   
     if @user && @user.authenticate(params[:password])       
       session[:user_id] = @user.id      
-      redirect_to '/welcome'   
-    else     
+
+      redirect_to '/spreadsheet/index' 
+    else
+      puts "hello?"       
       flash[:notice] = "Invalid Username or Password" 
       redirect_to '/login'
     end
@@ -34,6 +41,11 @@ class SessionsController < ApplicationController
   #Unused
   #Path: /sessions/welcome (sessions_welcome)
   def welcome
-
+    @user = User.find_by(id: session[:user_id])
+    if @user == nil
+      flash[:username] = "Please Sign In"
+    else
+      flash[:username] = @user.username
+    end
   end
 end
