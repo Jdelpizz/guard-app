@@ -28,7 +28,6 @@ group :test do
   gem 'capybara',           '3.28.0' 
   gem 'selenium-webdriver', '3.142.4' 
   gem 'webdrivers',         '4.1.2'
-  gem 'cucumber-rails', require: false
   gem 'cucumber-rails-training-wheels', require: false
   gem 'database_cleaner', require: false
 end
