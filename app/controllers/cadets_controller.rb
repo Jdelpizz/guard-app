@@ -12,6 +12,7 @@ class CadetsController < ApplicationController
         @cadet = Cadets.new
     end
 
+    
     def edit
     end
 
