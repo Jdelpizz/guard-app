@@ -38,6 +38,41 @@
             <% end %>
         </tbody> 
     </table>
+
+    <table class="tftable" border="1">
+    <tbody>
+
+        <thead>
+            <tr>
+                <th>Times</th>
+                <th><%= @cadet1.F_NAME %> <%=  @cadet1.L_NAME %></th>
+                <th><%= @cadet2.F_NAME %> <%=  @cadet1.L_NAME %></th>
+                <th><%= @cadet3.F_NAME %> <%=  @cadet1.L_NAME %></th>
+                <th><%= @cadet4.F_NAME %> <%=  @cadet1.L_NAME %></th>
+                <th><%= @cadet5.F_NAME %> <%=  @cadet1.L_NAME %></th>
+                <th colspan = 3>Actions</th>
+            </tr>
+        </thead>
+
+     </tbody>   
+
+        <tbody>
+            
+            <tr>
+                <td> Display an array of times </td>
+                <td> 1</td>
+                <td> 2</td>
+                <td> 3</td>
+                <td> 4</td>
+                <td> 5</td>
+                <td> 6</td>
+           
+                
+            </tr>
+         
+        </tbody> 
+    </table>
+
     <p>
     <%= link_to 'Add new cadet', new_cadet_path %>
     </p>

@@ -6,13 +6,19 @@ class CadetsController < ApplicationController
 
     def index
         @cadets = Cadets.all
+        @cadet1 = Cadets.find(1)
+        @cadet2 = Cadets.find(2)
+        @cadet3 = Cadets.find(3)
+        @cadet4 = Cadets.find(4)
+        @cadet5 = Cadets.find(5)
+        @cadet6 = Cadets.find(6)
     end
 
     def new
         @cadet = Cadets.new
     end
 
-    
+
     def edit
     end
 
