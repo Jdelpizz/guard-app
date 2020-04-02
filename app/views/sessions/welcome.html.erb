@@ -7,7 +7,7 @@
             <th>
                 <h1>Welcome!</h1>
             </th>
-            <th style="width: 80%;">
+            <th style="width: 60%;">
             </th>
             <th>
                <%= flash[:username] %>
@@ -21,6 +21,12 @@
             </th>
              <th>
                 <%= button_to "Logout", '/logout', method: :post%>
+            </th>
+            <th>
+                <%= button_to "Guard Schedule", '/spreadsheet/index', method: :get%>
+            </th>
+            <th>
+                <%= button_to "User Profile", '/users/profile', method: :get%>
             </th>
         </tr>
     </table>
