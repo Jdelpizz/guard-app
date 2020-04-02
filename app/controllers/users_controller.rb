@@ -69,4 +69,55 @@ def password_reqs?
     end
       return View("Index")
   end
+
+
+  def user_profile
+  end
+
+  #parse the table into classes
+def parseTable()
+  table = params['table']
+  classes = ""
+  #Split by \n
+  table = table.split("\n")
+  #First 2 rows don't matter
+  table.each do |string|
+    #add it to the schedule
+    string = /[MWFTR]+\s+\d{4}-\d{4}/.match(string).to_s.strip
+    if string.include?('-')
+      classes = classes + string + "\n"
+    end
+  end
+  return classes
+end
+
+#parse classes into a schedule
+def schedule(classes)
+  #each day is an attribute with an array
+  m=[]
+  t=[]
+  w=[]
+  r=[]
+  f=[]
+  #if the day is in the begining add the times to the day
+  classes = classes.split("\n")
+  classes.each do |c|
+      c = c.split("\t")
+      if c[0].include?("M")
+          m << c[1]
+      end
+      if c[0].include?("T")
+          t << c[1]
+      end
+      if c[0].include?("W")
+          w << c[1]
+      end
+      if c[0].include?("R")
+          r << c[1]
+      end
+      if c[0].include?("F")
+          f << c[1]
+      end
+  end
+  return m,t,w,r,f
 end

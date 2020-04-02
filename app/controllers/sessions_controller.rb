@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])       
       session[:user_id] = @user.id      
 
-      redirect_to '/spreadsheet/index' 
+      redirect_to '/welcome' 
     else
       puts "hello?"       
       flash[:notice] = "Invalid Username or Password" 

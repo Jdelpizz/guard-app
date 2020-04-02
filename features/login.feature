@@ -9,9 +9,9 @@ Background: I am on the homepage
 
 Scenario: I login with admin
   When I login with "admin" and "1AnnoyingPassword!"
-  Then I should see "Company Spreadsheet"
-  Then I go to the home page
   Then I should see "admin"
+  Then I go to the spreadsheet_index page
+  Then I should see "Company Spreadsheet"
   
 
 Scenario: I login to an unknown account
