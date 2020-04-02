@@ -30,6 +30,7 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'cucumber-rails-training-wheels', require: false
   gem 'database_cleaner', require: false
+  gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

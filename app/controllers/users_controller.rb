@@ -63,32 +63,32 @@ def password_reqs?
 
 #are they logged in?
 #Path: N/A
-  def authorized
-    if logged_in?    
-    else
-    redirect_to '/welcome'
-    end
-  end
-
   def profile
     @user = User.find_by(id: session[:user_id])
     flash[:username] = @user.username
     flash[:text_area_example] = "Class Schedule \nCourse 	Class Type 	Title 	Days 	Time 	Location 	Instructor \nAERO 402 	LEC 	Natl Secur Aff/Prep for AD II 	MWF 	0800-0850 	Jenkins Hall 305 	Yerage, Edward .\nELEC 330 	LEC 	Digital Systems Engr 	TR 	0930-1045 	Grimsley Hall 305 	Hayne, Ronald J.\nAERO 450 	LAB 	USAF Contract Training Lab 	R 	1600-1800 	Jenkins Hall 101 	Thurber, Kathleen .\nCSCI 421 	LEC 	Software Engineering Practicum 	TR 	1100-1215 	Thompson Hall 319 	Verdicchio, Michael P.\nCSCI 499 	IND 	Senior Research Project 				Banik, Shankar M.\nCRMJ 392 	OL1 	Cybercrime 				Navarro, Jordana ."
   end
   def add_schedule
-    schedule = params[:schedule]
-    classes = parseTable(schedule)
-    m,t,w,r,f = schedule(classes)
-    puts "m: "
-    puts m
-    puts "t: "
-    puts t
-    puts "w: "
-    puts w
-    puts "r: "
-    puts r
-    puts "f: "
-    puts f
+    schedule = params[:schedule_field]
+    if schedule == nil
+      flash[:notice] = "Schedule Update Failed"
+      redirect_to "/users/profile"
+    else
+      classes = parseTable(schedule)
+      m,t,w,r,f = schedule(classes)
+      puts "m: "
+      puts m
+      puts "t: "
+      puts t
+      puts "w: "
+      puts w
+      puts "r: "
+      puts r
+      puts "f: "
+      puts f
+      flash[:notice] = "Schedule Updated"
+      redirect_to "/users/profile"
+    end
   end
   #parse the table into classes
   def parseTable(table)

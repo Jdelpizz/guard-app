@@ -1,5 +1,10 @@
 <%= stylesheet_link_tag "application.css" %>
 <h1><%=flash[:username] %>'s Profile</h1>
+
+<div style="color: red;", class="notice">
+    <%= flash[:notice] %>
+</div>
+
 <h2>Add Schedule here:</h2>
 <p>Copy and paste from CAS or Lessesne, please.</p>
 
@@ -7,7 +12,7 @@
 <table>
     <tr>
         <td>
-            <%= text_area_tag "schedule",nil, size: "150x10", placeholder: "#{flash[:text_area_example]}" %>
+            <%= text_area_tag "schedule_field",nil, size: "150x10", placeholder: "#{flash[:text_area_example]}" %>
         </td>
     </tr>
     <tr>

@@ -8,14 +8,13 @@ class SessionsController < ApplicationController
 
 #might be used by the logged_in?() function, don't really know though
 #Path: /sessions_login
-  def login
-    if session[:user_id] != nil
-      redirect_to '/welcome'
-    else
-      redirect_to '/login' 
-    end
-
-  end
+#  def login
+#    if session[:user_id] != nil
+#      redirect_to '/welcome'
+#    else
+#      redirect_to '/login' 
+#    end
+#  end
   
   def logout
     session[:user_id] = nil
