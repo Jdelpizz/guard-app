@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'guard/index'
   get 'spreadsheet/index'
   get 'users/profile'
+  post 'users/add_schedule', to: 'users#add_schedule'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create' 
   post 'logout', to: 'sessions#logout'
