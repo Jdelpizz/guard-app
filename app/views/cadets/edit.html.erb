@@ -1,0 +1,90 @@
+<h1> Edit a new Cadet </h1>
+
+<%= render 'form' %>
+
+
+<%= form_with(model: @cadet, local: true) do |f| %>
+
+    <p>
+        <%= f.label :First_Name %> <br/>
+        <%= f.text_field :F_NAME %>
+    </p>
+
+    <p>
+        <%= f.label :Middle_Name %> <br/>
+        <%= f.text_field :M_INITIAL %>
+    </p>
+
+    <p>
+        <%= f.label :Last_Name %> <br/>
+        <%= f.text_field :L_NAME %>
+    </p>
+
+    <p>
+        <%= f.label :CWID %> <br/>
+        <%= f.text_field :CWID %>
+    </p>
+
+    <p>
+        <%= f.label :C_Status %> <br/>
+        <%= f.text_field :C_STATUS %>
+    </p>
+
+    <p>
+        <%= f.label :Company_Number %> <br/>
+        <%= f.text_field :CO_ID %>
+    </p>
+
+    <p>
+        <%= f.label :Room_Number %> <br/>
+        <%= f.text_field :R_NUM %>
+    </p>
+
+    <p>
+        <%= f.label :P_NUM %> <br/>
+        <%= f.text_field :P_NUM %>
+    </p>
+
+    <p>
+        <%= f.label :EMAIL %> <br/>
+        <%= f.text_field :EMAIL %>
+    </p>
+
+    <p>
+        <%= f.label :RANK_ID %> <br/>
+        <%= f.text_field :RANK_ID %>
+    </p>
+
+    <p>
+        <%= f.label :Monday_Classes %> <br/>
+        <%= f.text_area :monday %>
+    </p>
+
+    <p>
+        <%= f.label :Tuesday_Classes %> <br/>
+        <%= f.text_area :tuesday %>
+    </p>
+
+    <p>
+        <%= f.label :Wednesday_Classes %> <br/>
+        <%= f.text_area :wednesday %>
+    </p>
+
+    <p>
+        <%= f.label :Thursday_Classes %> <br/>
+        <%= f.text_area :thursday %>
+    </p>
+
+    <p>
+        <%= f.label :Friday_Classes %> <br/>
+        <%= f.text_area :friday %>
+    </p>
+
+    
+    <p>
+        <%= f.submit %>
+    </p>
+
+<% end %>
+
+<%= link_to 'Back', cadets_path %>

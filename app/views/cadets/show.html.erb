@@ -1,0 +1,23 @@
+<h1> Details about <%= @cadet.F_NAME %> <%= @cadet.L_NAME %> </h1>
+
+
+<p><strong> FIRST NAME: </strong> <%= @cadet.F_NAME %> </p>
+<p><strong> MIDDLE NAME: </strong> <%= @cadet.M_INITIAL %> </p>
+<p><strong> LAST NAME: </strong> <%= @cadet.L_NAME %> </p>
+<p><strong> CWID: </strong> <%= @cadet.CWID %> </p>
+<p><strong> EMAIL: </strong> <%= @cadet.EMAIL %> </p> 
+<p><strong> RANK ID: </strong> <%= @cadet.RANK_ID %> </p>
+<p><strong> COMPANY ID: </strong> <%= @cadet.CO_ID %> </p>
+<p><strong> C STATUS: </strong> <%= @cadet.C_STATUS %> </p>
+<p><strong> ROOM NUMBER: </strong> <%= @cadet.R_NUM %> </p>
+<p><strong> P NUMBER: </strong> <%= @cadet.P_NUM %> </p>
+
+<p><strong> MONDAY CLASSES: </strong> <%= @cadet.monday %>  </p>
+<p><strong> TUESDAY CLASSES: </strong> <%= @cadet.tuesday %>  </p>
+<p><strong> WEDNESDAY CLASSES: </strong> <%= @cadet.wednesday %>  </p>
+<p><strong> THURSDAY CLASSES: </strong> <%= @cadet.thursday %> </p>
+<p><strong> FRIDAY CLASSES: </strong> <%= @cadet.friday %> </p>
+
+<%= link_to 'Edit', edit_cadet_path(@cadet) %> |
+<%= button_to 'Delete', cadet_path(@cadet), method: :delete, data: { confirm: "Are you sure?"} %> |
+<%= link_to 'Back', cadets_path %>
