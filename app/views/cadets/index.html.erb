@@ -23,8 +23,9 @@
         </thead>
 
         <tbody>
-            <% @cadets.each do |cadet| %>
+            
             <tr>
+                <% @cadets.each do |cadet| %>
                 <td><%= cadet.F_NAME %> <%= cadet.L_NAME %> </td>
                 <td><%= cadet.monday %> </td>
                 <td><%= cadet.tuesday %> </td>
@@ -45,13 +46,63 @@
         <thead>
             <tr>
                 <th>Times</th>
-                <th><%= @cadet1.F_NAME %> <%=  @cadet1.L_NAME %></th>
-                <th><%= @cadet2.F_NAME %> <%=  @cadet1.L_NAME %></th>
-                <th><%= @cadet3.F_NAME %> <%=  @cadet1.L_NAME %></th>
-                <th><%= @cadet4.F_NAME %> <%=  @cadet1.L_NAME %></th>
-                <th><%= @cadet5.F_NAME %> <%=  @cadet1.L_NAME %></th>
+                <th>Sophomore</th>
+                <th>Junior</th>
+                <th>Senior</th>
                 <th colspan = 3>Actions</th>
             </tr>
+            <tr>
+               <th id="M0530">0530</th>
+            </tr>
+            <tr>
+               <th id="M0700">0700</th>
+            </tr>
+            <tr>
+               <th id="M0800">0800</th>
+            </tr>
+            <tr>  
+               <th id="M0900">0900</th>
+            </tr>
+            <tr>
+               <th id="M1000">1000</th>
+            </tr>
+            <tr>
+               <th id="M1100">1100</th>
+            </tr>
+            <tr>
+               <th id="M1200">1200</th>
+            </tr>
+            <tr>
+               <th id="M1300">1300</th>
+            </tr>
+            <tr>
+               <th id="M1400">1400</th>
+            </tr>
+            <tr>
+               <th id="M1530">1500</th>
+            </tr>
+            <tr>
+               <th id="M1600">1600</th>
+            </tr>
+            <tr>
+               <th id="M1700">1700</th>
+            </tr>
+            <tr>
+               <th id="M1800">1800</th>
+            </tr>
+            <tr>
+               <th id="M1900">1900</th>
+            </tr>
+            <tr>
+               <th id="M2000">2000</th>
+            </tr>
+            <tr>
+               <th id="M2100">2100</th>
+            </tr>
+            <tr>
+               <th id="M2200">2200</th>
+            </tr>
+             
         </thead>
 
      </tbody>   
@@ -66,10 +117,7 @@
                 <td> 4</td>
                 <td> 5</td>
                 <td> 6</td>
-           
-                
             </tr>
-         
         </tbody> 
     </table>
 
