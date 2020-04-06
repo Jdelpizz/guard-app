@@ -7,12 +7,14 @@
 .tftable tr {background-color:#d4e3e5;}
 .tftable td {font-size:12px;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;}
 .tftable tr:hover {background-color:#ffffff;}
+hr { display: block; margin-top: 1em; margin-bottom: 1em; margin-left: auto; margin-right: auto; border-style: inset; border-width: 1px;} 
 </style>
 
     <table class="tftable" border="1">
         <thead>
             <tr>
-                <th>Cadet Name</th>
+                <th>First Name</th>
+                <th>Last Name</th>
                 <th>Monday</th>
                 <th>Tuesday</th>
                 <th>Wednesday</th>
@@ -23,10 +25,10 @@
         </thead>
 
         <tbody>
-            
             <tr>
                 <% @cadets.each do |cadet| %>
-                <td><%= cadet.F_NAME %> <%= cadet.L_NAME %> </td>
+                <td><%= cadet.F_NAME %> </td>
+                <td><%= cadet.L_NAME %> </td>
                 <td><%= cadet.monday %> </td>
                 <td><%= cadet.tuesday %> </td>
                 <td><%= cadet.wednesday %> </td>
@@ -39,7 +41,14 @@
             <% end %>
         </tbody> 
     </table>
+    
+    <p>
+        <%= link_to 'Add new cadet', new_cadet_path %>
+    </p>
+    
+    <hr>
 
+    <h1>Guard Roster</h1>
     <table class="tftable" border="1">
     <tbody>
 
@@ -120,8 +129,4 @@
             </tr>
         </tbody> 
     </table>
-
-    <p>
-    <%= link_to 'Add new cadet', new_cadet_path %>
-    </p>
 </body>

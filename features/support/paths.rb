@@ -15,6 +15,12 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
+      
+    when /^the Spreadsheet\s?page$/
+      '/cadets'
+      
+    when/^the first cadet's \s?page$/
+      '/cadets/0'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

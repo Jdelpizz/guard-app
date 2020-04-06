@@ -31,7 +31,7 @@ base_cadets = [
      :C_STATUS => '5', :F_NAME => "Yoon", :M_INITIAL => "",
      :L_NAME => "Kim", :R_NUM => "3135", :P_NUM => "8393374620",
      :EMAIL => "rroser@citadel.edu", :RANK_ID => 4, :monday => "1000", :tuesday => "1200", :wednesday => "0900", :thursday => "0700", :friday => "0500"
-    },
+    }
 ]
 
 base_cadets.each do |cadet|

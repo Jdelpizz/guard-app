@@ -4,6 +4,6 @@ Feature: Testing Cadets View
   I want to see my people's schedules in a spreadsheet view
   So that I have it handy
 
-  Scenario: XO sees table with everybody's schedules
-    Given I am on the xo's page
-    Then I should see the spreadsheet
+  Scenario: XO sees table with everybody's personal schedules
+    When I am on the first cadet's page
+    Then I should see "Details about Maria Contreras"
