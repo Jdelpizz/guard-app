@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_213456) do
+ActiveRecord::Schema.define(version: 2020_04_06_034737) do
 
   create_table "cadets", force: :cascade do |t|
     t.integer "CWID"
@@ -23,6 +23,11 @@ ActiveRecord::Schema.define(version: 2020_03_04_213456) do
     t.string "P_NUM"
     t.string "EMAIL"
     t.integer "RANK_ID"
+    t.string "monday"
+    t.string "tuesday"
+    t.string "wednesday"
+    t.string "thursday"
+    t.string "friday"
   end
 
   create_table "classes", force: :cascade do |t|

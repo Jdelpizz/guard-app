@@ -4,13 +4,14 @@ Rails.application.routes.draw do
   get 'sessions/create'
   get 'sessions/login'
   get 'sessions/welcome'
+
   get 'users/new'
   get 'users/create'
-
-  get 'guard/index'
-  get 'spreadsheet/index'
   get 'users/profile'
   post 'users/add_schedule', to: 'users#add_schedule'
+
+  get 'spreadsheet/index'
+  
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create' 
   post 'logout', to: 'sessions#logout'
@@ -20,8 +21,9 @@ Rails.application.routes.draw do
 
 #use resources? https://guides.rubyonrails.org/getting_started.html
   resources :users, only: [:new, :create, :profile]
+  resources :cadets, only: [:show, :index, :new, :create, :edit, :update, :destroy]
+  resources :cadets, only: [:show, :index, :new, :create, :edit, :update, :destroy]
 
   root 'sessions#welcome'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
-

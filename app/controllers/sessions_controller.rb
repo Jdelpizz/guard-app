@@ -30,6 +30,8 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id      
 
       redirect_to '/welcome' 
+#      redirect_to '/cadets' 
+
     else
       puts "hello?"       
       flash[:notice] = "Invalid Username or Password" 

@@ -14,7 +14,7 @@ Scenario: I am logged out and I logout
   Then I should see "Please Sign In"
   When I press "Logout"
   Then I should see "Please Sign In"
-  Then I go to the spreadsheet_index page
+  Then I go to the Spreadsheet page
   Then I should not see "Company Spreadsheet"
   
 Scenario: I am logged in and I logout
@@ -22,7 +22,7 @@ Scenario: I am logged in and I logout
   Then I go to the home page
   When I press "Logout"
   Then I should see "Please Sign In"
-  Then I go to the spreadsheet_index page
+  Then I go to the Spreadsheet page
   Then I should not see "Company Spreadsheete"
 
 
