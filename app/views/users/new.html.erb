@@ -3,25 +3,44 @@
 
 <%= form_for @user do |f|%>
   <%= f.label :username%><br>
-  <%= f.text_field :username%><br>  
+    <% if flash[:notice1] %>
+      <div style="color: red;", class="notice">
+        <br/>
+        <%= flash[:notice1].html_safe %>
+        <br/>
+      </div>
+    <%end%>
+    <%= f.text_field :username%><br>  
+
   <%= f.label :password%><br>  
-  <% if flash[:notice] %>
-    <div style="color: red;", class="notice">
-      <br/>
-      <%= flash[:notice].html_safe %>
-      <br/>
-    </div>
-  <% else %>
-    <p style="color: blue;">
-      Please, <br/>
-      use a long password (at least 12 characters),<br/>
-      include a symbol,<br/>
-      a number,<br/>
-      an uppercase letter,<br/>
-      and a lowercase letter.<br/>
-      Thank you!
-    </p>
-  <% end %>
-  <%= f.password_field :password%><br>  
+    <% if flash[:notice2] %>
+      <div style="color: red;", class="notice">
+        <br/>
+        <%= flash[:notice2].html_safe %>
+       <br/>
+     </div>
+   <% else %>
+     <p style="color: blue;">
+        Please, <br/>
+        use a long password (at least 12 characters),<br/>
+        include a symbol,<br/>
+        a number,<br/>
+        an uppercase letter,<br/>
+        and a lowercase letter.<br/>
+        Thank you!
+      </p>
+    <% end %>
+   <%= f.password_field :password%><br>
+
+  <%= f.label :CWID, 'CWID' %><br>
+    <% if flash[:notice3] %>
+      <div style="color: red;", class="notice">
+        <br/>
+        <%= flash[:notice3].html_safe %>
+        <br/>
+      </div>
+    <% end %>
+    <%= f.text_field :CWID %><br>   
+ 
   <%= f.submit %>
 <%end%>
