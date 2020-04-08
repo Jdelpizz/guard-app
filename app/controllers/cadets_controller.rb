@@ -44,7 +44,7 @@ class CadetsController < ApplicationController
     private 
     
     def set_cadet
-        @cadet = Cadets.find(params[:CWID])
+        @cadet = Cadets.find(params[:id])
     end
 
     def cadet_params
