@@ -44,14 +44,10 @@ class CadetsController < ApplicationController
     private 
     
     def set_cadet
-        @cadet = Cadets.find(params[:id])
+        @cadet = Cadets.find(params[:CWID])
     end
 
     def cadet_params
         params.require(:cadet).permit(:CWID, :CO_ID, :C_STATUS, :F_NAME, :M_INITIAL, :L_NAME, :R_NUM, :P_NUM, :EMAIL, :RANK_ID, :monday, :tuesday, :wednesday, :thursday, :friday)
-    end
-
-    def cadets_params
-        params.require(:cadets).permit(:CWID, :CO_ID, :C_STATUS, :F_NAME, :M_INITIAL, :L_NAME, :R_NUM, :P_NUM, :EMAIL, :RANK_ID, :monday, :tuesday, :wednesday, :thursday, :friday)
     end
 end
