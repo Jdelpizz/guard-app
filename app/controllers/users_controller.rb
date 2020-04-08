@@ -26,7 +26,7 @@ class UsersController < ApplicationController
           if cwid?
             @user = User.create(params.require(:user).permit(:username, :password, :CWID))
             session[:user_id] = @user.id      
-            redirect_to '/welcome'
+            redirect_to '/cadets/new'
           else
             redirect_to '/users/new'
           end

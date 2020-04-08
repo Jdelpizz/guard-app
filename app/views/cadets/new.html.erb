@@ -1,5 +1,6 @@
-<h1> Enter in a new Cadet </h1>
-
+<h1> Please Create Your Profile </h1>
+    <!-- Should only be accessable after they "created a user" -->
+        <!-- Don't add user to table till profile is made -->
 <%= render 'form' %>
 
 
@@ -21,18 +22,21 @@
     </p>
 
     <p>
+    <!-- Should be auto populated with The CWID That is active -->
         <%= f.label :CWID %> <br/>
         <%= f.text_field :CWID %>
     </p>
 
+    <!-- Link name to ID -->
     <p>
         <%= f.label :C_Status %> <br/>
-        <%= f.text_field :C_STATUS %>
+        <%= f.select :C_Status, ['Knob', 'Sophomore', 'Junior', 'Senior']%>
     </p>
 
+    <!-- Link Company Name to Company ID -->
     <p>
-        <%= f.label :Company_Number %> <br/>
-        <%= f.text_field :CO_ID %>
+        <%= f.label :Company %> <br/>
+        <%= f.select :CO_ID, ['Alpha', 'Bravo', 'Charlie', 'Delta', 'Echo', 'F-Troop', 'Golf', 'Hotel', 'India', 'Kilo', 'Lima', 'Mike', 'November', 'Oscar', 'Papa', 'Romeo', 'Sierra', 'Tango', 'Victor' 'Palmetto Battery', 'Band']%>
     </p>
 
     <p>
@@ -41,43 +45,19 @@
     </p>
 
     <p>
-        <%= f.label :P_NUM %> <br/>
+        <%= f.label :Phone_Number %> <br/>
         <%= f.text_field :P_NUM %>
     </p>
 
     <p>
-        <%= f.label :EMAIL %> <br/>
+        <%= f.label :Email, "Email Address" %> <br/>
         <%= f.text_field :EMAIL %>
     </p>
 
+    <!-- Make Rank Drop Down -->
     <p>
-        <%= f.label :RANK_ID %> <br/>
+        <%= f.label :RANK_ID, "Rank" %> <br/>
         <%= f.text_field :RANK_ID %>
-    </p>
-
-    <p>
-        <%= f.label :Monday_Classes %> <br/>
-        <%= f.text_area :monday %>
-    </p>
-
-    <p>
-        <%= f.label :Tuesday_Classes %> <br/>
-        <%= f.text_area :tuesday %>
-    </p>
-
-    <p>
-        <%= f.label :Wednesday_Classes %> <br/>
-        <%= f.text_area :wednesday %>
-    </p>
-
-    <p>
-        <%= f.label :Thursday_Classes %> <br/>
-        <%= f.text_area :thursday %>
-    </p>
-
-    <p>
-        <%= f.label :Friday_Classes %> <br/>
-        <%= f.text_area :friday %>
     </p>
 
     <p>
@@ -86,4 +66,4 @@
 
 <% end %>
 
-<%= link_to 'Back', cadets_path %>
+<%= button_to "Back to Welcome", '/welcome', method: :get%>
