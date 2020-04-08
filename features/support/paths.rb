@@ -21,6 +21,9 @@ module NavigationHelpers
       
     when/^the first cadet's \s?page$/
       '/cadets/0'
+      
+    when/^the New Cadet\s?page$/
+      '/cadets/new'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

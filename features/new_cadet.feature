@@ -1,7 +1,11 @@
-Feature: xo can manually add a new cadet
- 
-Scenario: Add a cadet
-    Given I am on the Spreadsheet page
-    Then I go to the New Cadet page
-    Then I should see "Enter in new Cadet"
-    
+Feature: Allows xo to create new cadets
+
+As an xo
+So I can create a new cadet
+
+Background: I am on the Spreadsheet page
+  Given I go to the New Cadet page
+
+Scenario: I create a cadet
+  When I create the cadet "10621790"
+  Then I should see "Cadet was created successfully."
