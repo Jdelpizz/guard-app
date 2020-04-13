@@ -12,7 +12,6 @@ class CadetsController < ApplicationController
         @cadet = Cadets.new
     end
 
-
     def edit
     end
 
@@ -32,7 +31,6 @@ class CadetsController < ApplicationController
             redirect_to cadet_path(@cadet)
         else
             render 'edit'
-
         end
     end
 
