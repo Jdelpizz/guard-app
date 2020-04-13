@@ -10,18 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_120127) do
-
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+ActiveRecord::Schema.define(version: 2020_03_12_145256) do
 
   create_table "cadets", force: :cascade do |t|
     t.integer "CWID"
     t.integer "CO_ID"
-    t.string "C_STATUS"
     t.string "F_NAME"
     t.string "M_INITIAL"
     t.string "L_NAME"
@@ -69,7 +62,13 @@ ActiveRecord::Schema.define(version: 2020_03_12_120127) do
     t.integer "RANK_ID"
     t.string "RANK_NAME"
     t.boolean "BOL_SWORD"
+  end
 
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
