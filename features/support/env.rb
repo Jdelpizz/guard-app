@@ -11,6 +11,8 @@ if ENV['RAILS_ENV'] == 'test'
   puts "required simplecov"
 end
 
+require 'capybara-screenshot/cucumber'
+
 # frozen_string_literal: true
 
 # Capybara defaults to CSS3 selectors rather than XPath.
