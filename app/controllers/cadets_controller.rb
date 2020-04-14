@@ -9,7 +9,6 @@ class CadetsController < ApplicationController
     end
 
     def new
-        @cwid = current_user.CWID
         @cadet = Cadets.new
     end
 
@@ -18,6 +17,12 @@ class CadetsController < ApplicationController
     end
 
     def create
+        cadet_hash = cadet_params
+
+        get_cwid()
+        get_cadet_status()
+        get_company_id()
+        get_rank()
         @cadet = Cadets.new(cadet_params)
         if @cadet.save
             flash[:notice] = "Cadet was created successfully."
@@ -25,6 +30,20 @@ class CadetsController < ApplicationController
         else
             render 'new'
         end
+    end
+
+    def get_cwid()
+        
+    end
+    
+    def get_cadet_status()
+    
+    end
+    def get_company_id()
+    
+    end
+    def get_rank()
+    
     end
 
     def update

@@ -5,5 +5,5 @@ class Cadets < ApplicationRecord
     validates :F_NAME, presence: true, length: { minimum: 2, maximum: 20}
     validates :L_NAME, presence: true, length: { minimum: 2, maximum: 20}
     validates :EMAIL, presence: true, length: { minimum: 5, maximum: 50}
-    validates :RANK_ID, presence: true, length: { minimum: 1, maximum: 1}
+    validates :RANK_ID, presence: true, length: { minimum: 1, maximum: 2}
 end  

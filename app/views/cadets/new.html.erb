@@ -23,7 +23,7 @@
     <p>
     <!-- Should be auto populated with The CWID That is active -->
         <%= f.label :CWID, "CWID"%> <br/>
-        <%= f.label :Cadet_CWID, "#{@cwid}" %> <br/>
+        <%= f.label :Cadet_CWID, "#{current_user.CWID}" %> <br/>
     </p>
 
     <!-- Link name to ID -->
@@ -56,7 +56,7 @@
     <!-- Make Rank Drop Down -->
     <p>
         <%= f.label :RANK_ID, "Rank" %> <br/>
-        <%= f.select :RANK_ID, ["Private", "Corporal", "Sergeant", "Staff Sergeant", "Sergeant First Class", "Master Sergeant", "First Sergeant", "Sergeant Major", "Command Sergeant Major","Second Lieutenant", "First  Lieutenant", "Captain", "Major", " Lieutenant Colonel", "Colonel"] %>
+        <%= f.select :RANK_ID, ["Private", "Corporal", "Sergeant", "Staff Sergeant", "Sergeant First Class", "Master Sergeant", "First Sergeant", "Sergeant Major", "Command Sergeant Major","Second Lieutenant", "First  Lieutenant", "Captain", "Major", "Lieutenant Colonel", "Colonel"] %>
     </p>
 
     <p>
