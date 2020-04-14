@@ -6,11 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-base_cadets = [
-    {:id => 0, :CWID => 10621790, :CO_ID => '21',
-     :C_STATUS => '4', :F_NAME => "Maria", :M_INITIAL => "F",
-     :L_NAME => "Contreras", :R_NUM => "3365", :P_NUM => "4073343443",
-     :EMAIL => "mcontrer@citadel.edu", :RANK_ID => 7, :monday => "0800", :tuesday => "0900", :wednesday => "1000", :thursday => "1100", :friday => "1200"
+base_cadets = 
+[
+    {
+        :id => 0,
+        :CWID => 10621790,
+        :CO_ID => '20',
+        :C_STATUS => '4',
+        :F_NAME => "Maria", 
+        :M_INITIAL => "F",
+        :L_NAME => "Contreras", 
+        :R_NUM => "3365", 
+        :P_NUM => "4073343443",
+        :EMAIL => "mcontrer@citadel.edu", 
+        :RANK_ID => 7, 
+        :monday => "0800", 
+        :tuesday => "0900", 
+        :wednesday => "1000", 
+        :thursday => "1100", 
+        :friday => "1200"
     },
     {:id => 1, :CWID => 10729283, :CO_ID => '20',
      :C_STATUS => '5', :F_NAME => "Yoon", :M_INITIAL => "",
@@ -42,11 +56,10 @@ base_locations =
     {:LOCA_ID => '3', :LOCA_NAME => "Second Battalion"},
     {:LOCA_ID => '4', :LOCA_NAME => "Third Battalion"},
     {:LOCA_ID => '5', :LOCA_NAME => "Fourth Battalion"},
-    {:LOCA_ID => '6', :LOCA_NAME => "Fifth Battalion"},
-
+    {:LOCA_ID => '6', :LOCA_NAME => "Fifth Battalion"}
 ]
 
-base_companies = 
+base_company = 
 [
     {:CO_ID => 0, :LOCA_ID =>2, :CO_NAME => "Alpha"},
     {:CO_ID => 1, :LOCA_ID =>2, :CO_NAME => "Bravo"},
@@ -73,39 +86,43 @@ base_companies =
 
 base_ranks = 
 [
-    {:RANK_ID => 0, :RANK_NAME => "Private", :BOL_SWORD => false}
-    {:RANK_ID => 0, :RANK_NAME => "Corporal", :BOL_SWORD => false}
-    {:RANK_ID => 0, :RANK_NAME => "Sergeant", :BOL_SWORD => false}
-    {:RANK_ID => 0, :RANK_NAME => "Staff Sergeant", :BOL_SWORD => false}
-    {:RANK_ID => 0, :RANK_NAME => "Sergeant First Class", :BOL_SWORD => true}
-    {:RANK_ID => 0, :RANK_NAME => "Master Sergeant", :BOL_SWORD => true}
-    {:RANK_ID => 0, :RANK_NAME => "First Sergeant", :BOL_SWORD => true}
-    {:RANK_ID => 0, :RANK_NAME => "Sergeant Major", :BOL_SWORD => true}
-    {:RANK_ID => 0, :RANK_NAME => "Command Sergeant Major", :BOL_SWORD => true}
-    {:RANK_ID => 0, :RANK_NAME => "Second Lieutenant", :BOL_SWORD => true}
-    {:RANK_ID => 0, :RANK_NAME => "First  Lieutenant", :BOL_SWORD => true}
-    {:RANK_ID => 0, :RANK_NAME => "Captain", :BOL_SWORD => true}
-    {:RANK_ID => 0, :RANK_NAME => "Major", :BOL_SWORD => true}
-    {:RANK_ID => 0, :RANK_NAME => "Lieutenant Colonel", :BOL_SWORD => true}
+    {:RANK_ID => 0, :RANK_NAME => "Private", :BOL_SWORD => false},
+    {:RANK_ID => 0, :RANK_NAME => "Corporal", :BOL_SWORD => false},
+    {:RANK_ID => 0, :RANK_NAME => "Sergeant", :BOL_SWORD => false},
+    {:RANK_ID => 0, :RANK_NAME => "Staff Sergeant", :BOL_SWORD => false},
+    {:RANK_ID => 0, :RANK_NAME => "Sergeant First Class", :BOL_SWORD => true},
+    {:RANK_ID => 0, :RANK_NAME => "Master Sergeant", :BOL_SWORD => true},
+    {:RANK_ID => 0, :RANK_NAME => "First Sergeant", :BOL_SWORD => true},
+    {:RANK_ID => 0, :RANK_NAME => "Sergeant Major", :BOL_SWORD => true},
+    {:RANK_ID => 0, :RANK_NAME => "Command Sergeant Major", :BOL_SWORD => true},
+    {:RANK_ID => 0, :RANK_NAME => "Second Lieutenant", :BOL_SWORD => true},
+    {:RANK_ID => 0, :RANK_NAME => "First  Lieutenant", :BOL_SWORD => true},
+    {:RANK_ID => 0, :RANK_NAME => "Captain", :BOL_SWORD => true},
+    {:RANK_ID => 0, :RANK_NAME => "Major", :BOL_SWORD => true},
+    {:RANK_ID => 0, :RANK_NAME => "Lieutenant Colonel", :BOL_SWORD => true},
     {:RANK_ID => 0, :RANK_NAME => "Colonel", :BOL_SWORD => true}
 ]
 
-base_c_statuses = [
-    {:C_ID => 0, :C_NAME => "Knob"}
-    {:C_ID => 1, :C_NAME => "Sophomore"}
-    {:C_ID => 2, :C_NAME => "Junior"}
+base_c_statuses = 
+[
+    {:C_ID => 0, :C_NAME => "Knob"},
+    {:C_ID => 1, :C_NAME => "Sophomore"},
+    {:C_ID => 2, :C_NAME => "Junior"},
     {:C_ID => 3, :C_NAME => "Senior"}
 ]
 
 base_cadets.each do |cadet|
- Cadets.create!(cadet)
+    Cadets.create!(cadet)
 end
 base_locations.each do |location|
- Cadets.create!(location)
+    ::Locations.create!(location)
 end
-base_companies.each do |company|
- Cadets.create!(company)
+base_company.each do |company|
+    ::Company.create!(company)
 end
 base_ranks.each do |rank|
- Cadets.create!(rank)
+    ::Ranks.create!(rank)
+end
+base_c_statuses.each do |status|
+    ::CStatus.create!(status)
 end

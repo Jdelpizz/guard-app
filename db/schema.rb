@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_07_155313) do
+ActiveRecord::Schema.define(version: 2020_04_14_183545) do
+
+  create_table "c_statuses", force: :cascade do |t|
+    t.integer "C_ID"
+    t.string "C_NAME"
+  end
 
   create_table "cadets", force: :cascade do |t|
     t.integer "CWID"
