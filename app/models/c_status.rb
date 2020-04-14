@@ -1,3 +1,3 @@
-class C_status < ApplicationRecord
+class CStatus < ApplicationRecord
 
 end
