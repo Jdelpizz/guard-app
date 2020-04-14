@@ -26,7 +26,7 @@ class CadetsController < ApplicationController
     end
 
     def update
-        if @cadet.update(cadets_params)
+        if @cadet.update(cadet_params)
             flash[:notice] = "Cadet was updated successfully"
             redirect_to cadet_path(@cadet)
         else

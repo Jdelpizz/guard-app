@@ -33,7 +33,10 @@ group :test do
   gem 'cucumber-rails-training-wheels', require: false
   gem 'database_cleaner', require: false
   gem 'capybara-screenshot'
+  gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
