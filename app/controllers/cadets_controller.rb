@@ -26,7 +26,7 @@ class CadetsController < ApplicationController
     end
 
     def update
-        if @cadet.update(cadet_params)
+        if @cadet.update(cadets_params)
             flash[:notice] = "Cadet was updated successfully"
             redirect_to cadet_path(@cadet)
         else
@@ -35,7 +35,9 @@ class CadetsController < ApplicationController
     end
 
     def destroy
+        @cadet = Cadets.find(params[:id])
         @cadet.destroy
+        flash[:notice] = "Cadet was successfully deleted."
         redirect_to cadets_path
     end
 
