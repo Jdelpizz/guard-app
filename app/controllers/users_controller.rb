@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 #Do not have to be an authorized user (logged in) to create a new user
   skip_before_action :authorized, only: [:new, :create]
+  skip_before_action :has_profile?, only: [:new, :create]
 #The minimum length for created password
   MIN_PASS_LENGTH = 12
   
@@ -15,8 +16,6 @@ class UsersController < ApplicationController
 #Sanitizes user creation requests
 #Path: /users/create (users_create)
   def create
-    puts User.find_by(CWID: params[:user][:CWID]) != nil
-    puts User.find_by(username: params[:user][:username]) != nil
     if (User.find_by(CWID: params[:user][:CWID]) != nil) || (User.find_by(username: params[:user][:username]) != nil)
       flash[:notice1] = "Sorry, that account already exists."
       
@@ -40,7 +39,7 @@ class UsersController < ApplicationController
       if params[:user][:CWID].length == 8
         return true
       else
-        flash[:notice3] = "Not 8 digits long"
+        flash[:notice3] = "Please enter your CWID"
         return false
       end
   end

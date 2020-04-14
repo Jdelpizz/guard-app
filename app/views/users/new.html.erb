@@ -1,18 +1,13 @@
 <%= stylesheet_link_tag "application.css" %>
+<div style="margin-left: 5%;">
 <h1>Sign Up</h1>
-
-<%= form_for @user do |f|%>
-  <%= f.label :username%><br>
-    <% if flash[:notice1] %>
+   <% if flash[:notice1] %>
       <div style="color: red;", class="notice">
         <br/>
         <%= flash[:notice1].html_safe %>
         <br/>
       </div>
     <%end%>
-    <%= f.text_field :username%><br>  
-
-  <%= f.label :password%><br>  
     <% if flash[:notice2] %>
       <div style="color: red;", class="notice">
         <br/>
@@ -30,9 +25,6 @@
         Thank you!
       </p>
     <% end %>
-   <%= f.password_field :password%><br>
-
-  <%= f.label :CWID, 'CWID' %><br>
     <% if flash[:notice3] %>
       <div style="color: red;", class="notice">
         <br/>
@@ -40,8 +32,15 @@
         <br/>
       </div>
     <% end %>
+
+<%= form_for @user do |f|%>
+  <%= f.label :username%><br>
+    <%= f.text_field :username%><br>  
+  <%= f.label :password%><br>  
+    <%= f.password_field :password%><br>
+  <%= f.label :CWID, 'CWID' %><br>
     <%= f.text_field :CWID %><br>   
- 
   <%= f.submit %>
 <%end%>
 <%= button_to "Back to Welcome", '/welcome', method: :get%>
+</div>

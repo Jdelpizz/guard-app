@@ -1,6 +1,6 @@
 class CadetsController < ApplicationController
     before_action :set_cadet, only: [:show, :edit, :update, :destroy]
-
+    skip_before_action :has_profile?, only: [:new, :create]
     def show
     end
 
@@ -9,6 +9,7 @@ class CadetsController < ApplicationController
     end
 
     def new
+        @cwid = current_user.CWID
         @cadet = Cadets.new
     end
 
