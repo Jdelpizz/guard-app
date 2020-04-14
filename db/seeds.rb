@@ -90,6 +90,12 @@ base_ranks =
     {:RANK_ID => 0, :RANK_NAME => "Colonel", :BOL_SWORD => true}
 ]
 
+base_c_statuses = [
+    {:C_ID => 0, :C_NAME => "Knob"}
+    {:C_ID => 1, :C_NAME => "Sophomore"}
+    {:C_ID => 2, :C_NAME => "Junior"}
+    {:C_ID => 3, :C_NAME => "Senior"}
+]
 
 base_cadets.each do |cadet|
  Cadets.create!(cadet)
