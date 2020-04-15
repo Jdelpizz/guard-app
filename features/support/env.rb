@@ -11,7 +11,14 @@ if ENV['RAILS_ENV'] == 'test'
   puts "required simplecov"
 end
 
+require 'database_cleaner'
+require 'database_cleaner/cucumber'
+  DatabaseCleaner.strategy = :truncation
+  DatabaseCleaner.start
+  DatabaseCleaner.clean
+
 require 'capybara-screenshot/cucumber'
+
 Rails.application.load_seed
 # frozen_string_literal: true
 
