@@ -8,10 +8,10 @@ Background: I am on the homepage
   Given I go to the home page
 
 Scenario: I create a user
-  When I create the user "admin" "1AnnoyingPassword!"
-  Then I should see "Welcome"
+  When I create the user "admin" "1AnnoyingPassword!" "11111111"
+  Then I should see "Please Create Your Profile"
 
 Scenario: I create a user that already exists
-  When I create the user "admin" "1AnnoyingPassword!"
-  When I create the user "admin" "1AnnoyingPassword!"
+  When I create the user "admin" "1AnnoyingPassword!" "11111111"
+  When I create the user "admin" "1AnnoyingPassword!" "11111111"
   Then I should see "Sorry, that account already exists."
