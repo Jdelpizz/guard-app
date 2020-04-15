@@ -39,7 +39,7 @@
   <%= f.label :password%><br>  
     <%= f.password_field :password%><br>
   <%= f.label :CWID, 'CWID' %><br>
-    <%= f.text_field :CWID %><br>   
+    <%= f.text_field :CWID, maxlength: 8 %><br>   
   <%= f.submit %>
 <%end%>
 <%= button_to "Back to Welcome", '/welcome', method: :get%>

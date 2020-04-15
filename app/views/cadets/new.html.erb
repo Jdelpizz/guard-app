@@ -6,17 +6,17 @@
 
     <p>
         <%= f.label :First_Name %> <br/>
-        <%= f.text_field :F_NAME %>
+        <%= f.text_field :F_NAME, maxlength: 20 %>
     </p>
 
     <p>
         <%= f.label :Middle_Name %> <br/>
-        <%= f.text_field :M_INITIAL %>
+        <%= f.text_field :M_INITIAL, maxlength: 1 %>
     </p>
 
     <p>
         <%= f.label :Last_Name %> <br/>
-        <%= f.text_field :L_NAME %>
+        <%= f.text_field :L_NAME, maxlength: 20 %>
     </p>
 
     <p>
@@ -36,7 +36,7 @@
 
     <p>
         <%= f.label :Room_Number %> <br/>
-        <%= f.text_field :R_NUM %>
+        <%= f.text_field :R_NUM, maxlength: 4 %>
     </p>
 
     <p>
