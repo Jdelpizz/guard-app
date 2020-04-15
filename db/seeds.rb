@@ -87,20 +87,20 @@ base_company =
 base_ranks = 
 [
     {:RANK_ID => 0, :RANK_NAME => "Private", :BOL_SWORD => false},
-    {:RANK_ID => 0, :RANK_NAME => "Corporal", :BOL_SWORD => false},
-    {:RANK_ID => 0, :RANK_NAME => "Sergeant", :BOL_SWORD => false},
-    {:RANK_ID => 0, :RANK_NAME => "Staff Sergeant", :BOL_SWORD => false},
-    {:RANK_ID => 0, :RANK_NAME => "Sergeant First Class", :BOL_SWORD => true},
-    {:RANK_ID => 0, :RANK_NAME => "Master Sergeant", :BOL_SWORD => true},
-    {:RANK_ID => 0, :RANK_NAME => "First Sergeant", :BOL_SWORD => true},
-    {:RANK_ID => 0, :RANK_NAME => "Sergeant Major", :BOL_SWORD => true},
-    {:RANK_ID => 0, :RANK_NAME => "Command Sergeant Major", :BOL_SWORD => true},
-    {:RANK_ID => 0, :RANK_NAME => "Second Lieutenant", :BOL_SWORD => true},
-    {:RANK_ID => 0, :RANK_NAME => "First  Lieutenant", :BOL_SWORD => true},
-    {:RANK_ID => 0, :RANK_NAME => "Captain", :BOL_SWORD => true},
-    {:RANK_ID => 0, :RANK_NAME => "Major", :BOL_SWORD => true},
-    {:RANK_ID => 0, :RANK_NAME => "Lieutenant Colonel", :BOL_SWORD => true},
-    {:RANK_ID => 0, :RANK_NAME => "Colonel", :BOL_SWORD => true}
+    {:RANK_ID => 1, :RANK_NAME => "Corporal", :BOL_SWORD => false},
+    {:RANK_ID => 2, :RANK_NAME => "Sergeant", :BOL_SWORD => false},
+    {:RANK_ID => 3, :RANK_NAME => "Staff Sergeant", :BOL_SWORD => false},
+    {:RANK_ID => 4, :RANK_NAME => "Sergeant First Class", :BOL_SWORD => true},
+    {:RANK_ID => 5, :RANK_NAME => "Master Sergeant", :BOL_SWORD => true},
+    {:RANK_ID => 6, :RANK_NAME => "First Sergeant", :BOL_SWORD => true},
+    {:RANK_ID => 7, :RANK_NAME => "Sergeant Major", :BOL_SWORD => true},
+    {:RANK_ID => 8, :RANK_NAME => "Command Sergeant Major", :BOL_SWORD => true},
+    {:RANK_ID => 9, :RANK_NAME => "Second Lieutenant", :BOL_SWORD => true},
+    {:RANK_ID => 10, :RANK_NAME => "First Lieutenant", :BOL_SWORD => true},
+    {:RANK_ID => 11, :RANK_NAME => "Captain", :BOL_SWORD => true},
+    {:RANK_ID => 12, :RANK_NAME => "Major", :BOL_SWORD => true},
+    {:RANK_ID => 13, :RANK_NAME => "Lieutenant Colonel", :BOL_SWORD => true},
+    {:RANK_ID => 14, :RANK_NAME => "Colonel", :BOL_SWORD => true}
 ]
 
 base_c_statuses = 

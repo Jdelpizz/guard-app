@@ -17,7 +17,7 @@ class CadetsController < ApplicationController
     end
 
     def create
-        temp_hash = {:CWID => get_cwid(), :CO_ID => get_company_id(), :C_STATUS => get_cadet_status()}
+        temp_hash = {:CWID => get_cwid(), :CO_ID => get_company_id(), :C_STATUS => get_cadet_status(), :RANK_ID => get_rank()}
         
         @cadet = Cadets.new(cadet_params.merge(temp_hash))
         if @cadet.save
