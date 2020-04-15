@@ -5,7 +5,9 @@ So I can login with an account
 To ensure privacy and security of users
 
 Background: I am on the homepage
-  Given I create the user "admin" "1AnnoyingPassword!"
+  When I create the user "admin" "1AnnoyingPassword!" "11111111"
+  When I create the cadet "John" "Richard" "Delpizzo" "Senior" "Romeo" "5149" "703-975-4359" "jdelpizz@citadel.edu" "Private" 
+
 
 Scenario: I login with admin
   When I login with "admin" and "1AnnoyingPassword!"

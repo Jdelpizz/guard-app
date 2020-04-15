@@ -23,24 +23,24 @@ When /^(?:|I )create the following users:$/ do |fields|
      end
 end
 
-When /^(?:|I )create the cadet:$/ do |values|
-     fields.rows_hash.each do |fname, mname, lname, cstatus, co, rnum, pnum, email, rank|
-     When %{I fill in the following:}
-          %{| cadet_F_NAME      | #{fname}   |}
-          %{| cadet_M_INITIAL   | #{mname}   |}
-          %{| cadet_L_NAME      | #{lname}   |}
-          %{| cadet_C_STATUS    | #{cstatus} |}
-          %{| cadet_CO_ID       | #{co}      |}
-          %{| cadet_R_NUM       | #{rnum}    |}
-          %{| cadet_P_NUM       | #{pnum}    |}
-          %{| cadet_EMAIL       | #{email}   |}
-          %{| cadet_RANK_ID     | #{rank}    |}
-     end
+When /^(?:|I )create the cadet "([^"]*)" "([^"]*)" "([^"]*)" "([^"]*)" "([^"]*)" "([^"]*)" "([^"]*)" "([^"]*)" "([^"]*)"$/ do |fname, mname, lname, cstatus, co, rnum, pnum, email, rank|
+     fill_in("cadet_F_NAME", :with => fname )
+     fill_in("cadet_M_INITIAL", :with => mname )
+     fill_in("cadet_L_NAME", :with => lname )
+     select(cstatus, :from => 'cadet_C_STATUS' )
+     select(co, :from => 'cadet_CO_ID' )
+     fill_in("cadet_R_NUM", :with => rnum )
+     fill_in("cadet_P_NUM", :with => pnum )
+     fill_in("cadet_EMAIL", :with => email )
+     select(rank, :from => 'cadet_RANK_ID' )
+     click_button("commit")
+
 end
 
 When /^(?:|I )create the following cadets:$/ do |fields|
-     fields.rows_hash.each do |user, pass|
-       When %{I create the user "#{user}" "#{pass}"}
+     fields.rows_hash.each do |user, pass, fname, mname, lname, cstatus, co, rnum, pnum, email, rank|
+      When %{I login with "#{user}" and "#{pass}"}
+      When %{I create the cadet "#{fname}" "#{mname}" "#{lname}" "#{cstatus}" "#{co}" "#{rnum}" "#{pnum}" "#{email}" "#{rank}"}
      end
 end
 
