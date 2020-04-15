@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 #Sanitizes user creation requests
 #Path: /users/create (users_create)
   def create
-    if (User.find_by(CWID: params[:user][:CWID]) != nil) || (User.find_by(username: params[:user][:username]) != nil)
+    if (User.find_by(CWID: params[:user][:CWID]) != nil) || (User.find_by(username: params[:user][:username].downcase) != nil)
       flash[:notice1] = "Sorry, that account already exists."
       
       redirect_to '/users/new'
