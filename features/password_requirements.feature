@@ -8,8 +8,8 @@ Background: I am on the homepage
   Then I go to the home page
 
 Scenario: I make user with good password
-  When I create the user "admin" "1AnnoyingPassword!"
-  Then I should see "Welcome!"
+  When I create the user "admin" "1AnnoyingPassword!" "11111111"
+  Then I should see "Please Create Your Profile"
   Then I should not see "Please use a longer password"
   Then I should not see "Please include a symbol."
   Then I should not see "Please include a number."
@@ -17,7 +17,7 @@ Scenario: I make user with good password
   Then I should not see "Please include a lowercase letter."
 
 Scenario: I make a password too short
-  When I create the user "admin" "Password1!"
+  When I create the user "admin" "1Password!" "11111111"
   Then I should see "Please use a longer password"
   Then I should not see "Please include a symbol."
   Then I should not see "Please include a number."
@@ -25,7 +25,7 @@ Scenario: I make a password too short
   Then I should not see "Please include a lowercase letter."
 
 Scenario: I make user without symbol
-  When I create the user "admin" "1AnnoyingPassword"
+  When I create the user "admin" "1AnnoyingPassword" "11111111"
   Then I should see "Please include a symbol."
   Then I should not see "Please use a longer password"
   Then I should not see "Please include a number."
@@ -34,7 +34,7 @@ Scenario: I make user without symbol
 
 
 Scenario: I make user without number
-  When I create the user "admin" "AnnoyingPassword!"
+  When I create the user "admin" "AnnoyingPassword!" "11111111"
   Then I should see "Please include a number."
   Then I should not see "Please use a longer password"
   Then I should not see "Please include a symbol."
@@ -42,7 +42,7 @@ Scenario: I make user without number
   Then I should not see "Please include a lowercase letter."
 
 Scenario: I make user without uppercase
-  When I create the user "admin" "1annoyingpassword!"
+  When I create the user "admin" "1annoyingpassword!" "11111111"
   Then I should see "Please include an uppercase letter."
   Then I should not see "Please use a longer password"
   Then I should not see "Please include a symbol."
@@ -50,7 +50,7 @@ Scenario: I make user without uppercase
   Then I should not see "Please include a lowercase letter."
 
 Scenario: I make a user without lowercase
-  When I create the user "admin" "ANNOYINGPASSWORD1!"
+  When I create the user "admin" "ANNOYINGPASSWORD1!" "11111111"
   Then I should see "Please include a lowercase letter."
   Then I should not see "Please use a longer password"
   Then I should not see "Please include a symbol."
