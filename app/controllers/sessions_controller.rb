@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
     #the post of /login
   #Path: /login (login)
   def create
-      @user = User.find_by(username: params[:username])   
+      @user = User.find_by(username: params[:username].downcase)   
       if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id       
         if has_cadet?()      
