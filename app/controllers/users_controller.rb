@@ -78,12 +78,12 @@ def password_reqs?
   return still_true
 end
 
-#are they logged in?
-#Path: N/A
+#Allow user to add schedule
+#Path: /users/profile
   def profile
     @user = User.find_by(id: session[:user_id])
-    flash[:username] = @user.username
-    flash[:text_area_example] = "Class Schedule \nCourse 	Class Type 	Title 	Days 	Time 	Location 	Instructor \nAERO 402 	LEC 	Natl Secur Aff/Prep for AD II 	MWF 	0800-0850 	Jenkins Hall 305 	Yerage, Edward .\nELEC 330 	LEC 	Digital Systems Engr 	TR 	0930-1045 	Grimsley Hall 305 	Hayne, Ronald J.\nAERO 450 	LAB 	USAF Contract Training Lab 	R 	1600-1800 	Jenkins Hall 101 	Thurber, Kathleen .\nCSCI 421 	LEC 	Software Engineering Practicum 	TR 	1100-1215 	Thompson Hall 319 	Verdicchio, Michael P.\nCSCI 499 	IND 	Senior Research Project 				Banik, Shankar M.\nCRMJ 392 	OL1 	Cybercrime 				Navarro, Jordana ."
+    @username = @user.username
+    @text_area_example = "Class Schedule \nCourse 	Class Type 	Title 	Days 	Time 	Location 	Instructor \nAERO 402 	LEC 	Natl Secur Aff/Prep for AD II 	MWF 	0800-0850 	Jenkins Hall 305 	Yerage, Edward .\nELEC 330 	LEC 	Digital Systems Engr 	TR 	0930-1045 	Grimsley Hall 305 	Hayne, Ronald J.\nAERO 450 	LAB 	USAF Contract Training Lab 	R 	1600-1800 	Jenkins Hall 101 	Thurber, Kathleen .\nCSCI 421 	LEC 	Software Engineering Practicum 	TR 	1100-1215 	Thompson Hall 319 	Verdicchio, Michael P.\nCSCI 499 	IND 	Senior Research Project 				Banik, Shankar M.\nCRMJ 392 	OL1 	Cybercrime 				Navarro, Jordana ."
   end
   
 #adds schedule to DB
@@ -94,18 +94,7 @@ end
       redirect_to "/users/profile"
     else
       classes = parseTable(schedule)
-      m,t,w,r,f = schedule(classes)
-      puts "m: "
-      puts m
-      puts "t: "
-      puts t
-      puts "w: "
-      puts w
-      puts "r: "
-      puts r
-      puts "f: "
-      puts f
-      
+      m,t,w,r,f = schedule(classes)  
       @cadet = Cadets.where(CWID: current_user.CWID)
       @cadet.update(monday: m)
       @cadet.update(tuesday: t)
@@ -119,69 +108,97 @@ end
   #parse the table into classes
   def parseTable(table)
     classes = ""
-    #Split by \n
-    table = table.split("\n")
-    #First 2 rows don't matter
-    table.each do |string|
-      #add it to the schedule
-      #Lesesne
-      string1 = /([MWFTR])+\s+(\d{1,2}:\d{2} [ap]m) - (\d{1,2}:\d{2} [ap]m)/.match(string).to_s.strip
-      #CAS
-      string2 = /[MWFTR]+\s+\d{4}-\d{4}/.match(string).to_s.strip
-      #if from Lesesne
-      if string1.include?('-')
-        #remove :
-        string1.tr!(':','')
-        #remove spaces
-        string1.tr!(' ','')
-        #convert to military time
-        arr = []
-        arr = string1.split('-')
-        tmp =arr[0].split("\t")
-        arr = [tmp[0],tmp[1],arr[1]]
-        if arr[1].include?("p")
-          arr[1].tr!('pm','')
-          i = arr[1].to_i
-          i=i+1200  unless i>=1200
-          arr[1] = i.to_s
-        end
-        if arr[1].include?("a")
-          arr[1].tr!('am','')
-        end
-        arr[1] = "0"+arr[1] unless arr[1].length == 4
-        arr[1] = arr[1]+"-"
-        if arr[2].include?("p")
-          arr[2].tr!('pm','')
-          i = arr[2].to_i
-          i=i+1200 unless i>=1200
-          arr[2] = i.to_s
-        end
-        if arr[2].include?("a")
-          arr[2].tr!('am','')
-        end
-        arr[2] = "0"+arr[2] unless arr[2].length == 4
-        string1 = arr[0]+"\t"+arr[1]+arr[2]
-        classes = classes + string1 + "\n"
-      end
-      #if from CAS
-      if string2.include?('-')
-        classes = classes + string2 + "\n"
-      end
-    end
+    #Split each line
+      table = table.split("\n")
+    #parse each row from the table into classes per day
+        table.each do |string|
+        #add it to the schedule
+          #Lesesne regex
+            string1 = /([MWFTR])+\s+(\d{1,2}:\d{2} [ap]m) - (\d{1,2}:\d{2} [ap]m)/.match(string).to_s.strip
+          #CAS regex
+            string2 = /[MWFTR]+\s+\d{4}-\d{4}/.match(string).to_s.strip
+          #parse from Lesesne
+            if string1.include?('-')
+              string1=parse_lesesne(string1)
+              classes = classes + string1 + "\n"
+            end
+          #parse from CAS
+            if string2.include?('-')
+              classes = classes + string2 + "\n"
+            end
+          end
     return classes
+  end
+
+  
+  def parse_lesesne(str)
+    arr = prep_lesesne_str(str)
+    if arr[1].include?("p")
+      arr[1] = parse_pm(arr[1])
+    end
+    if arr[1].include?("a")
+      arr[1] = parse_am(arr[1])
+    end
+    # add hyphen
+      arr[1] = arr[1]+"-"
+    if arr[2].include?("p")
+      arr[2] = parse_pm(arr[2])
+    end
+    if arr[2].include?("a")
+      arr[2] = parse_am(arr[2])
+    end
+    # combine and return
+      str = arr[0]+"\t"+arr[1]+arr[2] 
+    return str
+  end
+
+  #prep string for parsing [days,time1,time2]
+  def prep_lesesne_str(str)
+    #remove :
+      str.tr!(':','')
+    #remove spaces
+      str.tr!(' ','')
+    #convert string to arr[string] for parse
+      arr = []
+      arr = str.split('-')
+      tmp =arr[0].split("\t")
+      arr = [tmp[0],tmp[1],arr[1]]
+    return arr
+ end
+
+  #am -> military time
+  def parse_am(str)
+    #remove am
+      str.tr!('am','')
+    #pad to 4 digits
+      str = "0"+str unless str.length == 4
+    return str
+  end
+
+  #pm -> military time
+  def parse_pm(str)
+    #remove pm
+      str.tr!('pm','')
+    #add 1200 to time... unless it is 12.
+      i = str.to_i
+      i=i+1200  unless i>=1200
+      str = i.to_s
+    #pad to 4 digits
+      str = "0"+str unless str.length == 4
+    return str
   end
 
   #parse classes into a schedule
   def schedule(classes)
     #each day is an attribute with an array
-    m=[]
-    t=[]
-    w=[]
-    r=[]
-    f=[]
+      m=[]
+      t=[]
+      w=[]
+      r=[]
+      f=[]
     #if the day is in the begining add the times to the day
-    classes = classes.split("\n")
-    classes.each do |c|
+      classes = classes.split("\n")
+      classes.each do |c|
         c = c.split("\t")
         if c[0].include?("M")
             m << c[1]
