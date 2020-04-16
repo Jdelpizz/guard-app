@@ -105,6 +105,12 @@ end
       puts r
       puts "f: "
       puts f
+      @cadet = Cadets.where(CWID: current_user.CWID)
+      @cadet.update(monday: m)
+      @cadet.update(tuesday: t)
+      @cadet.update(wednesday: w)
+      @cadet.update(thursday: r)
+      @cadet.update(friday: f)
       flash[:notice] = "Schedule Updated"
       redirect_to "/users/profile"
     end
