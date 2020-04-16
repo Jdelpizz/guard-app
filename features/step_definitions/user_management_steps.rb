@@ -24,6 +24,7 @@ When /^(?:|I )create the following users:$/ do |fields|
 end
 
 When /^(?:|I )create the cadet "([^"]*)" "([^"]*)" "([^"]*)" "([^"]*)" "([^"]*)" "([^"]*)" "([^"]*)" "([^"]*)" "([^"]*)"$/ do |fname, mname, lname, cstatus, co, rnum, pnum, email, rank|
+     visit path_to("the new_cadet page")
      fill_in("cadet_F_NAME", :with => fname )
      fill_in("cadet_M_INITIAL", :with => mname )
      fill_in("cadet_L_NAME", :with => lname )

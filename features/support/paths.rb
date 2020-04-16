@@ -19,10 +19,10 @@ module NavigationHelpers
     when /^the Spreadsheet\s?page$/
       '/cadets'
       
-    when/^the first cadet's \s?page$/
+    when /^the first cadet's \s?page$/
       '/cadets/0'
       
-    when/^the New Cadet\s?page$/
+    when /^the [nN]ew[ _][cC]adet\s?page$/
       '/cadets/new'
 
     # Add more mappings here.
