@@ -105,6 +105,7 @@ end
       puts r
       puts "f: "
       puts f
+      
       @cadet = Cadets.where(CWID: current_user.CWID)
       @cadet.update(monday: m)
       @cadet.update(tuesday: t)
@@ -123,9 +124,48 @@ end
     #First 2 rows don't matter
     table.each do |string|
       #add it to the schedule
-      string = /[MWFTR]+\s+\d{4}-\d{4}/.match(string).to_s.strip
-      if string.include?('-')
-        classes = classes + string + "\n"
+      #Lesesne
+      string1 = /([MWFTR])+\s+(\d{1,2}:\d{2} [ap]m) - (\d{1,2}:\d{2} [ap]m)/.match(string).to_s.strip
+      #CAS
+      string2 = /[MWFTR]+\s+\d{4}-\d{4}/.match(string).to_s.strip
+      #if from Lesesne
+      if string1.include?('-')
+        #remove :
+        string1.tr!(':','')
+        #remove spaces
+        string1.tr!(' ','')
+        #convert to military time
+        arr = []
+        arr = string1.split('-')
+        tmp =arr[0].split("\t")
+        arr = [tmp[0],tmp[1],arr[1]]
+        if arr[1].include?("p")
+          arr[1].tr!('pm','')
+          i = arr[1].to_i
+          i=i+1200  unless i>=1200
+          arr[1] = i.to_s
+        end
+        if arr[1].include?("a")
+          arr[1].tr!('am','')
+        end
+        arr[1] = "0"+arr[1] unless arr[1].length == 4
+        arr[1] = arr[1]+"-"
+        if arr[2].include?("p")
+          arr[2].tr!('pm','')
+          i = arr[2].to_i
+          i=i+1200 unless i>=1200
+          arr[2] = i.to_s
+        end
+        if arr[2].include?("a")
+          arr[2].tr!('am','')
+        end
+        arr[2] = "0"+arr[2] unless arr[2].length == 4
+        string1 = arr[0]+"\t"+arr[1]+arr[2]
+        classes = classes + string1 + "\n"
+      end
+      #if from CAS
+      if string2.include?('-')
+        classes = classes + string2 + "\n"
       end
     end
     return classes
