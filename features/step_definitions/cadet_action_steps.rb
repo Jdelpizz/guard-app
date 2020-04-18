@@ -18,7 +18,6 @@ visit path_to("the users_profile page")
 end
 
 When /^the db should have my schedule$/ do
-     #should be changed to check for classes rather than the cadet monday...friday
      @cadet = Cadets.where(CWID: "11111111").take
        def parse_to_arr(day)
           day.tr!("\"","")
@@ -54,4 +53,8 @@ When /^the db should have my schedule$/ do
           field_value = parse_to_arr(field_value)
           expect(parse_to_arr(@cadet["friday"])).to eq(field_value) 
           
+end
+
+When /^the db should have my classes$/ do
+
 end

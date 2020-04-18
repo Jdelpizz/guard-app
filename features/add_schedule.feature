@@ -13,11 +13,13 @@ Scenario: I add my cas schedule
   When I add my cas schedule
   Then I should see "Schedule Updated"
   Then the db should have my schedule
+  Then the db should have my classes
 
 Scenario: I add my lesesne schedule
   When I add my lesesne schedule
   Then I should see "Schedule Updated"
   Then the db should have my schedule
+  Then the db should have my classes
 
 Scenario: I add nothing
   When I press "User Profile"
