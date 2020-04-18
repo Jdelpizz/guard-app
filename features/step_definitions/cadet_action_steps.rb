@@ -18,7 +18,7 @@ visit path_to("the users_profile page")
 end
 
 When /^the db should have my schedule$/ do
-     @cadet = Cadets.where(CWID: "11111111").take
+     cadet = Cadets.where(CWID: "11111111").take
        def parse_to_arr(day)
           day.tr!("\"","")
           day.tr!(" ","")
@@ -35,30 +35,55 @@ When /^the db should have my schedule$/ do
      # monday
           field_value = '["0800-0850"]'
           field_value = parse_to_arr(field_value)
-          expect(parse_to_arr(@cadet["monday"])).to eq(field_value)
+          expect(parse_to_arr(cadet["monday"])).to eq(field_value)
      # tuesday
           field_value = '["0930-1045", "1100-1215"]'
           field_value = parse_to_arr(field_value)
-          expect(parse_to_arr(@cadet["tuesday"])).to eq(field_value) 
+          expect(parse_to_arr(cadet["tuesday"])).to eq(field_value) 
      # wednesday
           field_value = '["0800-0850"]'
           field_value = parse_to_arr(field_value)
-          expect(parse_to_arr(@cadet["wednesday"])).to eq(field_value) 
+          expect(parse_to_arr(cadet["wednesday"])).to eq(field_value) 
      # thursday
           field_value = '["0930-1045", "1600-1800", "1100-1215"]'
           field_value = parse_to_arr(field_value)
-          expect(parse_to_arr(@cadet["thursday"])).to eq(field_value) 
+          expect(parse_to_arr(cadet["thursday"])).to eq(field_value) 
      # friday
           field_value = '["0800-0850"]'
           field_value = parse_to_arr(field_value)
-          expect(parse_to_arr(@cadet["friday"])).to eq(field_value) 
+          expect(parse_to_arr(cadet["friday"])).to eq(field_value) 
           
 end
 
 When /^the db should have my classes$/ do
-
+     # does the monday class exist: ["0800-0850"]
+          puts classes?("monday", ["0800-0850"])
+     # do the tuesday classes exist: ["0930-1045", "1100-1215"]
+          classes?("tuesday", ["0930-1045", "1100-1215"])
+     # does the wednesday class exist: ["0800-0850"]
+          classes?("wednesday", ["0800-0850"])
+     # do the thursday classes exist ["0930-1045", "1600-1800", "1100-1215"]
+          classes?("thursday", ["0930-1045", "1600-1800", "1100-1215"])
+     # does the friday class exist: ["0800-0850"]
+          classes?("friday", ["0800-0850"])
 end
 
-Then("the db should have my enrollments") do
+def classes?(day, time_arr)
+     #pull all classes for the day
+          classes = Classes.where(DAY: day.upcase)
+     #for each class in the day, take the one with the right start and end time
+          time_arr.each do |time|
+               #remove spaces (there shouldn't be in the first place)
+                    time.tr!(" ","")
+               #split the start and end times
+                    time = time.split("-")
+               #all classes with the same start times
+                    tmp_classes = classes.where(START_TIME: time[0])
+               #there should be one with the right end time
+                    expect(tmp_classes.where(END_TIME: time[1]).take).not_to eq(nil)
+          end
+end
+
+Then(/^the db should have my enrollments$/) do
 
 end
