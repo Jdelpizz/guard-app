@@ -58,3 +58,7 @@ end
 When /^the db should have my classes$/ do
 
 end
+
+Then("the db should have my enrollments") do
+
+end
