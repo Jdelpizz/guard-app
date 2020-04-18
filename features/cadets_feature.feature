@@ -5,8 +5,8 @@ Feature: Testing Cadets View
   So that I have it handy
   
   Background: I am on the homepage
-  Given I create the user "admin" "1AnnoyingPassword!" "11111111"
-  When I create the cadet "John" "Marc" "Doe" "Senior" "Romeo" "5432" "800-555-1356" "jdoe56@citadel.edu" "Private" 
+    When I create the test user
+    When I create the test cadet
 
   Scenario: XO sees table with everybody's personal schedules
     When I am on the Spreadsheet page

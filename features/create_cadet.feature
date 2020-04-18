@@ -5,8 +5,8 @@ So I can create an account
 To access a personalized view of the site
 
 Background: I am on the homepage
-  Given I go to the home page
-  Then I create the user "admin" "1AnnoyingPassword!" "11111111"
+  When I go to the home page
+  When I create the test user
 
 Scenario: I create a profile
   When I create the cadet "John" "Marc" "Doe" "Senior" "Romeo" "5432" "800-555-1356" "jdoe56@citadel.edu" "Private" 

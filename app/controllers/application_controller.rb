@@ -20,8 +20,6 @@ class ApplicationController < ActionController::Base
     def has_profile?
         if logged_in?
             redirect_to '/cadets/new' unless has_cadet?()
-        else
-            redirect_to '/welcome'
         end
     end
 

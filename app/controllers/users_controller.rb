@@ -89,10 +89,8 @@ end
 #adds schedule to DB
   def add_schedule
     schedule = params[:schedule_field]
-    if schedule == nil
-      flash[:notice] = "Schedule Update Failed"
-      redirect_to "/users/profile"
-    else
+
+     if schedule != nil
       classes = parseTable(schedule)
       m,t,w,r,f = schedule(classes)  
       @cadet = Cadets.where(CWID: current_user.CWID)
@@ -102,8 +100,10 @@ end
       @cadet.update(thursday: r)
       @cadet.update(friday: f)
       flash[:notice] = "Schedule Updated"
-      redirect_to "/users/profile"
-    end
+    # else
+    #   flash[:notice] = "Schedule Update Failed" [DOES NOT SEEM NESSESARY]
+     end
+     redirect_to "/users/profile"
   end
   #parse the table into classes
   def parseTable(table)

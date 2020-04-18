@@ -16,5 +16,6 @@ Scenario: I create a user that already exists
   When I create the user "admin" "1AnnoyingPassword!" "11111111"
   Then I should see "Sorry, that account already exists."
 
-
-
+  Scenario: I create a user without CWID
+  When I create the user "admin" "1AnnoyingPassword!" " "
+  Then I should see "Please enter your CWID"
