@@ -17,6 +17,7 @@ When /^(?:|I )add my (lesesne|cas) schedule$/ do |schedule|
      click_button("Add Schedule")
 end
 
+#deprecated [replaced with the db should have my classes/enrollments]
 When /^the db should have my schedule$/ do
      cadet = Cadets.where(CWID: test_cwid).take
      # monday

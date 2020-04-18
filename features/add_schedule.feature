@@ -37,7 +37,6 @@ Scenario: I add my cas schedule
   # add the schedule
   When I add my cas schedule
   Then I should see "Schedule Updated"
-  Then the db should have my schedule
   # create a new class for unique times
   Then the db should have my classes
   # create an enrollment to match cadet to class
@@ -47,7 +46,6 @@ Scenario: I add my lesesne schedule
   # add the schedule
   When I add my lesesne schedule
   Then I should see "Schedule Updated"
-  Then the db should have my schedule
   # create a new class for unique times
   Then the db should have my classes
   # create an enrollment to match cadet to class
