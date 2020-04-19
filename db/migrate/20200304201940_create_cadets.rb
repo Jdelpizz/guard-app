@@ -20,4 +20,5 @@ class Cadets < ApplicationRecord
     belongs_to :rank
     has_many :enrollments
     has_one :guard_assignments
+    has_one :username
 end

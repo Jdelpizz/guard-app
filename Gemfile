@@ -9,6 +9,7 @@ gem 'turbolinks', '5.2.0'
 gem 'jbuilder',   '2.9.1'
 gem 'bootsnap',   '1.4.5', require: false
 gem 'bcrypt' ,    '>= 2.1.4'
+gem 'cucumber'
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'
@@ -23,9 +24,13 @@ group :development do
 end
 
 group :test do
-  gem 'capybara',           '3.28.0'
-  gem 'selenium-webdriver', '3.142.4'
+  gem 'cucumber-rails', require: false
+  gem 'capybara',           '3.28.0' 
+  gem 'selenium-webdriver', '3.142.4' 
   gem 'webdrivers',         '4.1.2'
+  gem 'cucumber-rails-training-wheels', require: false
+  gem 'database_cleaner', require: false
+  gem 'capybara-screenshot'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
