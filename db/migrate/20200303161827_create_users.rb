@@ -8,3 +8,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
     end
   end
 end
+
+class Users < ApplicationRecord
+    belongs_to :cadets
+end
