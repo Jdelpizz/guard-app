@@ -32,6 +32,7 @@ group :test do
   gem 'webdrivers',         '4.1.2'
   gem 'cucumber-rails-training-wheels', require: false
   gem 'database_cleaner', require: false
+  gem 'capybara-screenshot'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
