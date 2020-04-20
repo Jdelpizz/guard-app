@@ -10,12 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_04_06_034737) do
+
 
   create_table "cadets", force: :cascade do |t|
     t.integer "CWID"
     t.integer "CO_ID"
+
     t.string "C_STATUS"
+
     t.string "F_NAME"
     t.string "M_INITIAL"
     t.string "L_NAME"
@@ -23,11 +27,13 @@ ActiveRecord::Schema.define(version: 2020_04_06_034737) do
     t.string "P_NUM"
     t.string "EMAIL"
     t.integer "RANK_ID"
+
     t.string "monday"
     t.string "tuesday"
     t.string "wednesday"
     t.string "thursday"
     t.string "friday"
+
   end
 
   create_table "classes", force: :cascade do |t|
