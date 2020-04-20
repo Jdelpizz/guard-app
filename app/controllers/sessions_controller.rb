@@ -48,9 +48,9 @@ class SessionsController < ApplicationController
   def welcome
     @user = User.find_by(id: session[:user_id])
     if @user == nil
-      flash[:username] = "Please Sign In"
+      @username = "Please Sign In"
     else
-      flash[:username] = @user.username
+      @username = @user.username
     end
   end
 end
