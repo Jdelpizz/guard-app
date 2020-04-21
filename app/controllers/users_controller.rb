@@ -94,16 +94,45 @@ end
       classes = parseTable(schedule)
       m,t,w,r,f = schedule(classes)  
       @cadet = Cadets.where(CWID: current_user.CWID)
-      @cadet.update(monday: m)
-      @cadet.update(tuesday: t)
-      @cadet.update(wednesday: w)
-      @cadet.update(thursday: r)
-      @cadet.update(friday: f)
+      create_enrollment_entry(m, "monday")
+      create_enrollment_entry(t, "tuesday")
+      create_enrollment_entry(w, "wednesday")
+      create_enrollment_entry(r, "thursday")
+      create_enrollment_entry(f, "friday")
       flash[:notice] = "Schedule Updated"
     # else
     #   flash[:notice] = "Schedule Update Failed" [DOES NOT SEEM NESSESARY]
      end
      redirect_to "/users/profile"
+  end
+  
+  def class_entry(time_arr, day)
+     classes = Classes.where(DAY: day.upcase)
+    time_arr.each do |time|
+               #remove spaces (there shouldn't be in the first place)
+                    time.tr!(" ","")
+               #split the start and end times
+                    time = time.split("-")
+               #all classes with the same start times
+                     tmp_classes = classes.where(START_TIME: time[0])
+               #If class exists do nothing, if it doesn't exist add it
+                if tmp_classes.where(END_TIME: time[1]).take != nil
+                    return true
+                else classes.create(DAY: day.upcase, START_TIME: time[0], END_TIME: time[1])
+                end
+   
+          end
+  end
+  
+  def create_enrollment_entry(time_arr, day)
+    cwid = current_user.CWID
+    class_id = class_entry(time_arr, day) 
+    if Enrollments.where(CWID: cwid).where(CLASS_ID: class_id).take == nil
+      Enrollments.create(CWID: cwid, CLASS_ID: class_id)
+      return true
+    else 
+      return false
+    end
   end
   #parse the table into classes
   def parseTable(table)
