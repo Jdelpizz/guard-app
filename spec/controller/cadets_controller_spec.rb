@@ -13,7 +13,9 @@ RSpec.describe CadetsController, type: :controller do
     describe "DELETE #destroy" do
       it "redirects to the spreadsheet page " do
         @test_cadet.destroy
+        expect('cadets_path').not_to have_content("73829322")
         redirect_to 'cadets_path'
+       
       end
     end
 end

@@ -19,6 +19,8 @@
           1,
           1,
           1,
+          1,
+          null,
           null,
           null,
           null
@@ -476,45 +478,6 @@
           null
         ]
       },
-      "/home/ubuntu/environment/guard-app/spec/models/cadets_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
       "/home/ubuntu/environment/guard-app/app/models/cadets.rb": {
         "lines": [
           1,
@@ -536,6 +499,6 @@
         ]
       }
     },
-    "timestamp": 1586834574
+    "timestamp": 1587431817
   }
 }
