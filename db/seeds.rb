@@ -6,26 +6,26 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# base_cadets = 
-# [
-#     {
-#         :id => 0,
-#         :CWID => 10621790,
-#         :CO_ID => '20',
-#         :C_STATUS => '4',
-#         :F_NAME => "Maria", 
-#         :M_INITIAL => "F",
-#         :L_NAME => "Contreras", 
-#         :R_NUM => "3365", 
-#         :P_NUM => "4073343443",
-#         :EMAIL => "mcontrer@citadel.edu", 
-#         :RANK_ID => 7, 
-#         :monday => "0800", 
-#         :tuesday => "0900", 
-#         :wednesday => "1000", 
-#         :thursday => "1100", 
-#         :friday => "1200"
-#     },
+base_cadets = 
+[
+    {
+        :id => 0,
+        :CWID => 11111111,
+        :CO_ID => '20',
+        :C_STATUS => '4',
+        :F_NAME => "Maria", 
+        :M_INITIAL => "F",
+        :L_NAME => "Contreras", 
+        :R_NUM => "3365", 
+        :P_NUM => "4073343443",
+        :EMAIL => "mcontrer@citadel.edu", 
+        :RANK_ID => 7, 
+        :monday => "0800", 
+        :tuesday => "0900", 
+        :wednesday => "1000", 
+        :thursday => "1100", 
+        :friday => "1200"
+    }
 #     {:id => 1, :CWID => 10729283, :CO_ID => '20',
 #      :C_STATUS => '5', :F_NAME => "Yoon", :M_INITIAL => "",
 #      :L_NAME => "Kim", :R_NUM => "3135", :P_NUM => "8393374620",
@@ -45,8 +45,8 @@
 #      :C_STATUS => '5', :F_NAME => "Yoon", :M_INITIAL => "",
 #      :L_NAME => "Kim", :R_NUM => "3135", :P_NUM => "8393374620",
 #      :EMAIL => "rroser@citadel.edu", :RANK_ID => 4, :monday => "1000", :tuesday => "1200", :wednesday => "0900", :thursday => "0700", :friday => "0500"
-#     }
-# ]
+    # }
+]
 
 base_locations = 
 [

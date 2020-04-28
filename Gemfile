@@ -10,6 +10,7 @@ gem 'jbuilder',   '2.9.1'
 gem 'bootsnap',   '1.4.5', require: false
 gem 'bcrypt' ,    '>= 2.1.4'
 gem 'cucumber'
+gem 'rspec-rails'
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'

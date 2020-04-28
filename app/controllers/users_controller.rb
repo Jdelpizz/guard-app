@@ -117,8 +117,9 @@ end
                      tmp_classes = classes.where(START_TIME: time[0])
                #If class exists do nothing, if it doesn't exist add it
                 if tmp_classes.where(END_TIME: time[1]).take != nil
-                    return true
-                else classes.create(DAY: day.upcase, START_TIME: time[0], END_TIME: time[1])
+                    return tmp_classes.where(END_TIME: time[1]).take[:id]
+                else new_class = classes.create(DAY: day.upcase, START_TIME: time[0], END_TIME: time[1])
+                    return new_class[:id]
                 end
    
           end
