@@ -15,6 +15,7 @@ DEPENDENCIES:
 * jbuilder - 2.9.1
 * bootsnap - 1.4.5
 * bcrypt >= 2.1.4
+* cucumber
 * pundit
 * cancancan
 * sqlite3 - 1.4.1
@@ -23,15 +24,20 @@ DEPENDENCIES:
 * listen - 3.1.5
 * spring - 2.1.0
 * spring-watcher-listen - 2.0.1
+* cucumber-rails
+* capybara - 3.28.0
+* selenium-webdriver - 3.142.4
+* webdrivers - 4.1.2
+* cucumber-rails-training-wheels
+* database_cleaner
 
+Configuration
+* `bundle install`
+* `rake db:migrate`
+* `rake db:seed`
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
+How to run the test suite
+* `cucumber`
 
 * Services (job queues, cache servers, search engines, etc.)
 
