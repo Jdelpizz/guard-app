@@ -1,4 +1,7 @@
 class User < ApplicationRecord
-
     has_secure_password
 end
+
+def role?(role)  
+    roles.any? { |r| r.name.underscore.to_sym == role }  
+end  

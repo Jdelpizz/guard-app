@@ -94,11 +94,18 @@ end
       classes = parseTable(schedule)
       m,t,w,r,f = schedule(classes)  
       @cadet = Cadets.where(CWID: current_user.CWID)
-      create_enrollment_entry(m, "monday")
-      create_enrollment_entry(t, "tuesday")
-      create_enrollment_entry(w, "wednesday")
-      create_enrollment_entry(r, "thursday")
-      create_enrollment_entry(f, "friday")
+      #deprecated
+      @cadet.update(monday: m)
+      @cadet.update(tuesday: t)
+      @cadet.update(wednesday: w)
+      @cadet.update(thursday: r)
+      @cadet.update(friday: f)
+      #Work on Below VV
+      # create_enrollment_entry(m, "monday")
+      # create_enrollment_entry(t, "tuesday")
+      # create_enrollment_entry(w, "wednesday")
+      # create_enrollment_entry(r, "thursday")
+      # create_enrollment_entry(f, "friday")
       flash[:notice] = "Schedule Updated"
     # else
     #   flash[:notice] = "Schedule Update Failed" [DOES NOT SEEM NESSESARY]

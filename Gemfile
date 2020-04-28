@@ -11,6 +11,8 @@ gem 'bootsnap',   '1.4.5', require: false
 gem 'bcrypt' ,    '>= 2.1.4'
 gem 'cucumber'
 gem 'rspec-rails'
+gem 'pundit'
+gem 'cancancan'
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'

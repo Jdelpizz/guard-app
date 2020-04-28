@@ -1,0 +1,2 @@
+module BuglemasterHelper
+end
